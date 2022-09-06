@@ -88,10 +88,10 @@ section.chat .veiw::-webkit-scrollbar {
   width: 8px;
 }
 section.chat .veiw::-webkit-scrollbar-track {
-  background-color: #cdcdcd;
+  background-color: #f5f5f5;
 }
 section.chat .veiw::-webkit-scrollbar-thumb {
-  background: white;
+  background: #d6d6d6;
   border-radius: 8px;
 }
 section.chat .veiw::-webkit-scrollbar-thumb:hover {
@@ -167,9 +167,9 @@ section.chat form label {
   flex: 0 0 90%;
   font-family: inherit;
   border-radius: 5px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #73bcca;
   color: #42515a;
-  padding: 0.3em 1.1em;
+  padding: 0.5em 1.1em;
   font-size: 0.9em;
   cursor: auto;
 }
@@ -178,6 +178,7 @@ section.chat form label input {
 }
 section.chat form label:focus {
   outline: none;
+  border-color: #7fcedd;
 }
 section.chat form button {
   flex: 0 0 7%;
@@ -591,9 +592,11 @@ section.chat form button:hover {
   border: 2px solid #d6d6d6;
   border-radius: 15px;
   margin-bottom: 0.5em;
+  cursor: pointer;
 }
 #studentPanelPage > main #myPractice .pad main .item.active {
   color: black;
+  cursor: initial;
 }
 #studentPanelPage > main #myPractice .pad main .item.active .details {
   max-height: 5em;
