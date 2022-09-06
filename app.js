@@ -33,50 +33,50 @@
 //* onclick system
 refreshOnClicks();
 function refreshOnClicks() {
-    let clicker = dc.queries("[data-onClick]");
+  let clicker = dc.queries("[data-onClick]");
 
-    clicker.forEach(item => {
-        if (item.getAttribute('data-group')) {
+  clicker.forEach(item => {
+    if (item.getAttribute('data-group')) {
 
-            if (!item.clickEvent) {
-                item.clickEvent = true;
-                item.addEventListener("click", function () {
-                    dc.queries(`[data-group=${item.getAttribute('data-group')}`).forEach(item => {
-                        item.classList.remove(item.getAttribute("data-onClick"));
-                    })
-                    item.classList.toggle(item.getAttribute("data-onClick"));
-                });
-            }
+      if (!item.clickEvent) {
+        item.clickEvent = true;
+        item.addEventListener("click", function () {
+          dc.queries(`[data-group=${item.getAttribute('data-group')}`).forEach(item => {
+            item.classList.remove(item.getAttribute("data-onClick"));
+          })
+          item.classList.toggle(item.getAttribute("data-onClick"));
+        });
+      }
 
-        } else {
+    } else {
 
-            if (!item.clickEvent) {
-                item.clickEvent = true;
-                item.addEventListener("click", function () {
-                    item.classList.toggle(item.getAttribute("data-onClick"));
-                });
-            }
+      if (!item.clickEvent) {
+        item.clickEvent = true;
+        item.addEventListener("click", function () {
+          item.classList.toggle(item.getAttribute("data-onClick"));
+        });
+      }
 
-        }
-    })
+    }
+  })
 }
 
 //* Target system (grouped and single)
 let targeter = dc.queries('[data-target]');
 targeter.forEach(i => {
-    let target = dc.query(i.dataset.target);
-    if (target.dataset.group) {
-        i.addEventListener('click', function () {
-            dc.queries(`[data-group=${target.dataset.group}]`).forEach(item => {
-                item.classList.remove('active');
-            })
-            target.classList.add('active');
-        })
-    } else {
-        i.addEventListener('click', function () {
-            target.classList.toggle('active');
-        })
-    }
+  let target = dc.query(i.dataset.target);
+  if (target.dataset.group) {
+    i.addEventListener('click', function () {
+      dc.queries(`[data-group=${target.dataset.group}]`).forEach(item => {
+        item.classList.remove('active');
+      })
+      target.classList.add('active');
+    })
+  } else {
+    i.addEventListener('click', function () {
+      target.classList.toggle('active');
+    })
+  }
 })
 
 // Add smooth scrolling to all links
@@ -95,7 +95,7 @@ $("a").on('click', function (event) {
 });
 
 //copy spot player code
-dc.queries('#spotPlayer i').forEach(item=>{
+dc.queries('#spotPlayer i').forEach(item => {
   item.onclick = () => {
     let copyText = item.parentElement.querySelector('.code').innerHTML;
     navigator.clipboard.writeText(copyText);
@@ -104,13 +104,13 @@ dc.queries('#spotPlayer i').forEach(item=>{
       item.classList.remove('copied')
     }, 3000);
   }
-})
+});
 
 //updload practice
 (function () {
 
   //input adder 
-  dc.queries('.practice i.fa-plus-circle').forEach(item => {
+  dc.queries('#practiceModal i.fa-plus-circle').forEach(item => {
     item.addEventListener('click', () => {
       //clone the last input in the secition
       let clone = item.parentElement.querySelectorAll('.input');
@@ -152,7 +152,7 @@ dc.queries('#spotPlayer i').forEach(item=>{
       setTimeout(() => { item.parentElement.remove() }, 200);
     }
   }
-  dc.queries('.practice i.fa-times').forEach(item => {
+  dc.queries('#practiceModal i.fa-times').forEach(item => {
     removerEvnt(item)
   })
 
@@ -162,24 +162,24 @@ dc.queries('#spotPlayer i').forEach(item=>{
       item.parentElement.querySelector('span').innerHTML = e.target.value;
     })
   }
-  dc.queries('.practice input').forEach(item => { inputChangeHandler(item) })
+  dc.queries('#practiceModal input').forEach(item => { inputChangeHandler(item) })
 
   //clear all
   function clearPracticeForm() {
-    dc.queries('.practice .input label span').forEach(item=>{
+    dc.queries('#practiceModal .input label span').forEach(item => {
       item.innerHTML = '';
     })
-    dc.query('.practice').reset();
-    dc.queries('.practice .part').forEach(item=>{
-      let inputs= item.querySelectorAll('.input');
+    dc.query('#practiceModal').reset();
+    dc.queries('#practiceModal .part').forEach(item => {
+      let inputs = item.querySelectorAll('.input');
       if (inputs.length > 1) {
 
-        inputs.forEach((i, index)=>{
-          if (index == inputs.length-1) return
+        inputs.forEach((i, index) => {
+          if (index == inputs.length - 1) return
           i.remove();
         })
         console.log(item)
-        
+
         // for (let m=0; m < inputs.length; m++) {
         //   console.log(inputs[m])
         // }
@@ -188,9 +188,44 @@ dc.queries('#spotPlayer i').forEach(item=>{
   }
 
   //upload submit
-  dc.query('.practice').onsubmit = (e) => {
+  dc.query('#practiceModal').onsubmit = (e) => {
     e.preventDefault();
     clearPracticeForm();
     alert('form submitted!')
   }
 })()
+
+//scroll chat to the end
+function scrollChat() {
+  let chat = dc.query('.chat .veiw');
+  chat.scrollTo(0, chat.scrollHeight + 500)
+}
+
+//create massage in chat
+function createMsg(text) {
+  let chat = dc.query('.chat .veiw');
+  let msg = chat.query('div:not(.others)');
+  let newMsg = msg.cloneNode(true);
+
+  //change username
+  newMsg.querySelector('div').dataset.user = 'من';
+
+  //change the inner text
+  newMsg.querySelector('span').innerHTML = text;
+
+  //change time
+  let today = new Date();
+  let time = today.getHours() + ":" + today.getMinutes();
+  newMsg.querySelector('span').dataset.time = time;
+
+  return newMsg
+}
+
+//chat submit
+dc.query('.chat form').onsubmit = (e) => {
+  e.preventDefault();
+  scrollChat();
+  let inputTxt = e.target.querySelector('label').innerText;
+  dc.query('.chat .veiw').appendChild(createMsg(inputTxt));
+  e.target.querySelector('label').innerText = '';
+}
