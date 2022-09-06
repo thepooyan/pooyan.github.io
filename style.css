@@ -97,7 +97,7 @@ section.chat .veiw::-webkit-scrollbar-thumb {
 section.chat .veiw::-webkit-scrollbar-thumb:hover {
   background: #3bc6d8;
 }
-section.chat .veiw > * {
+section.chat .veiw > *:not(.date) {
   display: flex;
   justify-content: fs;
   align-items: center;
@@ -105,7 +105,7 @@ section.chat .veiw > * {
   flex-direction: row;
   padding-bottom: 2.5em;
 }
-section.chat .veiw > * .icon {
+section.chat .veiw > *:not(.date) .icon {
   --wid: 4em;
   width: var(--wid);
   height: var(--wid);
@@ -115,7 +115,7 @@ section.chat .veiw > * .icon {
   position: relative;
   flex-shrink: 0;
 }
-section.chat .veiw > * .icon::before {
+section.chat .veiw > *:not(.date) .icon::before {
   content: attr(data-user);
   position: absolute;
   top: calc(100% + 0.2em);
@@ -126,8 +126,8 @@ section.chat .veiw > * .icon::before {
   font-size: 0.9em;
   font-weight: 800;
 }
-section.chat .veiw > * span {
-  background-color: #fff;
+section.chat .veiw > *:not(.date) span {
+  background-color: #7fcedd;
   padding: 1em;
   border-radius: 25px 25px 0 25px;
   margin: 0 1em;
@@ -135,7 +135,7 @@ section.chat .veiw > * span {
   font-size: 0.8em;
   font-weight: 500;
 }
-section.chat .veiw > * span::before {
+section.chat .veiw > *:not(.date) span::before {
   content: attr(data-time);
   position: absolute;
   top: calc(100% + 0.2em);
@@ -149,11 +149,21 @@ section.chat .veiw .others .icon {
   background-image: url("./Content/images/img/Asset 2.png");
 }
 section.chat .veiw .others span {
+  background-color: #C8E0FC;
   border-radius: 25px 25px 25px 0;
 }
 section.chat .veiw .others span::before {
   right: unset;
   left: 0;
+}
+section.chat .veiw .date {
+  margin: 1em auto;
+  display: block;
+  text-align: center;
+  background: #d6d6d6;
+  width: max-content;
+  padding: 0.2em 1em;
+  border-radius: 10px;
 }
 section.chat form {
   width: 100%;
@@ -549,7 +559,12 @@ section.chat form button:hover {
   flex-direction: column;
   width: 100%;
   max-height: 91%;
-  overflow: scroll;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+#studentPanelPage > main #myPractice .pad aside .sessions::-webkit-scrollbar {
+  display: none;
 }
 #studentPanelPage > main #myPractice .pad aside .sessions span {
   border: 2px solid var(--blue);
@@ -580,7 +595,12 @@ section.chat form button:hover {
 #studentPanelPage > main #myPractice .pad main {
   flex: 8;
   max-height: 96%;
-  overflow: scroll;
+  overflow-y: scroll;
+  display: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+#studentPanelPage > main #myPractice .pad main::-webkit-scrollbar {
   display: none;
 }
 #studentPanelPage > main #myPractice .pad main.active {
