@@ -61,8 +61,7 @@ section.chat {
   border: 2px solid #7fcedd;
   margin: auto;
   border-radius: 14px;
-  overflow: hidden;
-  height: 98vh;
+  height: 140vh;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -73,6 +72,32 @@ section.chat header {
   font-weight: 900;
   color: #f39200;
   text-align: center;
+  padding: 1.6em 0;
+  position: relative;
+  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.0901960784);
+  z-index: 5;
+}
+section.chat header::before, section.chat header::after {
+  content: "";
+  position: absolute;
+}
+section.chat header::before {
+  right: 2em;
+  background-image: url("./Content/images/Student Panel/HappyQA2.png");
+  height: 4em;
+  width: 6.1em;
+  background-size: cover;
+  z-index: 4;
+  bottom: 0.01em;
+}
+section.chat header::after {
+  background-image: url("./Content/images/Student Panel/Chat.png");
+  left: 0;
+  height: 6.4em;
+  width: 9em;
+  background-size: cover;
+  z-index: 4;
+  bottom: 0;
 }
 section.chat .veiw {
   background-color: #f5f5f5;
@@ -172,12 +197,13 @@ section.chat form {
   align-items: flex-end;
   gap: 1em;
   padding: 0.8em 0.5em;
+  background: #7fcedd;
 }
 section.chat form label {
+  background: #f5f5f5;
   flex: 0 0 90%;
   font-family: inherit;
   border-radius: 5px;
-  border: 1px solid #73bcca;
   color: #42515a;
   padding: 0.5em 1.1em;
   font-size: 0.9em;
@@ -188,13 +214,12 @@ section.chat form label input {
 }
 section.chat form label:focus {
   outline: none;
-  border-color: #7fcedd;
 }
 section.chat form button {
   flex: 0 0 7%;
   border-radius: 10px;
   border: none;
-  padding: 0.4em 0;
+  padding: 0.5em 0;
   transition: 0.2s;
 }
 section.chat form button:hover {
