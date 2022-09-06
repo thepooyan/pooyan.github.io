@@ -1,0 +1,670 @@
+@charset "UTF-8";
+/*---------------MIXINS & FUNCTIONS--------------------------*/
+/*---------------MIXINS & FUNCTIONS--------------------------*/
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 100;
+    src: url('Font/IRANSansWeb/woff2/IRANSansXFaNum-Thin.woff2') format('woff2'), url('Font/IRANSansWeb/woff/IRANSansXFaNum-Thin.woff') format('woff'), url('Font/IRANSansWeb/ttf/IRANSansXFaNum-Thin.ttf') format('ttf');
+}*/
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 200;
+    src: url('Font/IRANSansWeb/woff2/IRANSansXFaNum-UltraLight.woff2') format('woff2'), url('Font/IRANSansWeb/woff/IRANSansXFaNum-UltraLight.woff') format('woff'),url('Font/IRANSansWeb/ttf/IRANSansXFaNum-UltraLight.ttf') format('ttf');
+}*/
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 300;
+  src: url("Font/IRANSansWeb/woff2/IRANSansXFaNum-Light.woff2") format("woff2"), url("Font/IRANSansWeb/woff/IRANSansXFaNum-Light.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Light.ttf") format("ttf");
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 500;
+  src: url("Font/IRANSansWeb/woff2/IRANSansXFaNum-Medium.woff2") format("woff2"), url("Font/IRANSansWeb/woff/IRANSansXFaNum-Medium.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Medium.ttf") format("ttf");
+}
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 600;
+    src: url('Font/IRANSansWeb/woff2/IRANSansXFaNum-DemiBold.woff2') format('woff2'), url('Font/IRANSansWeb/woff/IRANSansXFaNum-DemiBold.woff') format('woff'), url('Font/IRANSansWeb/ttf/IRANSansXFaNum-DemiBold.ttf') format('ttf');
+}*/
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 800;
+    src: url('Font/IRANSansWeb/woff2/IRANSansXFaNum-ExtraBold.woff2') format('woff2'), url('Font/IRANSansWeb/woff/IRANSansXFaNum-ExtraBold.woff') format('woff'), url('Font/IRANSansWeb/ttf/IRANSansXFaNum-ExtraBold.ttf') format('ttf');
+}*/
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 900;
+  src: url("Font/IRANSansWeb/woff2/IRANSansXFaNum-Black.woff2") format("woff2"), url("Font/IRANSansWeb/woff/IRANSansXFaNum-Black.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Black.ttf") format("ttf");
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: bold;
+  src: url("Font/IRANSansWeb/woff2/IRANSansXFaNum-Bold.woff2") format("woff2"), url("Font/IRANSansWeb/woff/IRANSansXFaNum-Bold.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: normal;
+  src: url("Font/IRANSansWeb/woff2/IRANSansXFaNum-Regular.woff2") format("woff2"), url("Font/IRANSansWeb/woff/IRANSansXFaNum-Regular.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Regular.ttf") format("ttf");
+}
+section.chat {
+  position: sticky;
+  top: 0;
+  display: block;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #6497bc;
+  margin: auto;
+  border: 2px solid #7fcedd;
+  border-radius: 14px;
+  overflow: hidden;
+}
+section.chat header {
+  font-size: 3em;
+  padding: 2em;
+  position: relative;
+  margin-bottom: 1.5em;
+  font-weight: 900;
+  color: #f39200;
+  text-align: center;
+}
+section.chat .veiw {
+  background-color: #f5f5f5;
+  color: #42515a;
+  padding: 2em 5em;
+}
+section.chat .veiw > * {
+  display: flex;
+  justify-content: fs;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: row;
+  padding-bottom: 2.5em;
+}
+section.chat .veiw > * .icon {
+  --wid: 4em;
+  width: var(--wid);
+  height: var(--wid);
+  background: url("./Content/images/img/Asset 4.png");
+  background-size: contain;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+section.chat .veiw > * .icon::before {
+  content: attr(data-user);
+  position: absolute;
+  top: calc(100% + 0.2em);
+  width: 0;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: 800;
+}
+section.chat .veiw > * span {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 25px 25px 0 25px;
+  margin: 0 1em;
+  position: relative;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+section.chat .veiw > * span::before {
+  content: "12:45 PM";
+  position: absolute;
+  top: calc(100% + 0.2em);
+  right: 0;
+  direction: ltr;
+}
+section.chat .veiw .others {
+  flex-direction: row-reverse;
+}
+section.chat .veiw .others .icon {
+  background-image: url("./Content/images/img/Asset 2.png");
+}
+section.chat .veiw .others span {
+  border-radius: 25px 25px 25px 0;
+}
+section.chat .veiw .others span::before {
+  right: unset;
+  left: 0;
+}
+
+#studentPanelPage > header {
+  background-color: #fdac14;
+  position: relative;
+  padding-top: 3em;
+}
+#studentPanelPage > header .right {
+  width: 37%;
+  height: 100%;
+  margin-right: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#studentPanelPage > header .right img.logo {
+  margin: auto;
+  display: block;
+  width: 300px;
+}
+#studentPanelPage > header .right p {
+  color: white;
+  font-size: 1.5em;
+  text-align: justify;
+  line-height: 1.5em;
+}
+#studentPanelPage > header > .header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+#studentPanelPage > header > .side {
+  position: absolute;
+  right: -70px;
+  bottom: 0;
+  height: 100%;
+}
+#studentPanelPage > main {
+  margin: 0 7vw;
+  padding-top: 3em;
+}
+#studentPanelPage > main .fullScreen {
+  margin: 0 -7vw;
+}
+#studentPanelPage > main > * {
+  margin-bottom: 3em !important;
+}
+#studentPanelPage > main nav {
+  margin-bottom: 7em;
+  border: 2px solid rgba(152, 133, 116, 0.4235294118);
+  background: linear-gradient(160deg, rgb(255, 255, 255) 19%, rgb(246, 246, 246) 57%, rgb(190, 194, 195) 100%);
+  border-radius: var(--border-radius);
+  padding: 1em 3em;
+}
+#studentPanelPage > main nav h2 {
+  width: 6em;
+  text-align: center;
+}
+#studentPanelPage > main nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 4em;
+  padding: 0;
+}
+#studentPanelPage > main nav ul li {
+  --radius: 9em;
+  border: 10px solid var(--color);
+  border-radius: 50%;
+  height: var(--radius);
+  width: var(--radius);
+  list-style: none;
+  position: relative;
+  font-weight: 800;
+  color: var(--color);
+  background: linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(247, 247, 247) 57%, rgb(192, 196, 197) 90%);
+  display: flex;
+  align-items: center;
+  --polygan-offset: 40%;
+}
+#studentPanelPage > main nav ul li::before, #studentPanelPage > main nav ul li::after {
+  content: "";
+  width: 3.2em;
+  height: 2.9em;
+  background-color: var(--color);
+  position: absolute;
+}
+#studentPanelPage > main nav ul li::before {
+  left: 100%;
+  clip-path: polygon(0 0, 100% 0, var(--polygan-offset) 100%, 0 100%);
+}
+#studentPanelPage > main nav ul li::after {
+  right: 100%;
+  clip-path: polygon(calc(100% - var(--polygan-offset)) 0, 100% 0, 100% 100%, 0 100%);
+}
+#studentPanelPage > main nav ul li:last-child::after {
+  display: none;
+}
+#studentPanelPage > main nav ul li:first-child::before {
+  display: none;
+}
+#studentPanelPage > main nav ul li div {
+  background: url("./Content/images/img/Asset 4.png") no-repeat;
+  background-size: contain;
+  border: 5px solid transparent;
+}
+#studentPanelPage > main nav ul li a,
+#studentPanelPage > main nav ul li span,
+#studentPanelPage > main nav ul li div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  --var-shadow: rgba(10, 10, 10, 0.008);
+  box-shadow: 0px 0px 0 var(--var-shadow), 0.4px 1px 0 var(--var-shadow), 0.8px 2px 0 var(--var-shadow), 1.2px 3px 0 var(--var-shadow), 1.6px 4px 0 var(--var-shadow), 2px 5px 0 var(--var-shadow), 2.4px 6px 0 var(--var-shadow), 2.8px 7px 0 var(--var-shadow), 3.2px 8px 0 var(--var-shadow), 3.6px 9px 0 var(--var-shadow), 4px 10px 0 var(--var-shadow), 4.4px 11px 0 var(--var-shadow), 4.8px 12px 0 var(--var-shadow), 5.2px 13px 0 var(--var-shadow), 5.6px 14px 0 var(--var-shadow), 6px 15px 0 var(--var-shadow), 6.4px 16px 0 var(--var-shadow), 6.8px 17px 0 var(--var-shadow), 7.2px 18px 0 var(--var-shadow), 7.6px 19px 0 var(--var-shadow), 8px 20px 0 var(--var-shadow), 8.4px 21px 0 var(--var-shadow), 8.8px 22px 0 var(--var-shadow), 9.2px 23px 0 var(--var-shadow), 9.6px 24px 0 var(--var-shadow), 10px 25px 0 var(--var-shadow), 10.4px 26px 0 var(--var-shadow), 10.8px 27px 0 var(--var-shadow), 11.2px 28px 0 var(--var-shadow), 11.6px 29px 0 var(--var-shadow), 12px 30px 0 var(--var-shadow), 12.4px 31px 0 var(--var-shadow), 12.8px 32px 0 var(--var-shadow), 13.2px 33px 0 var(--var-shadow), 13.6px 34px 0 var(--var-shadow), 14px 35px 0 var(--var-shadow), 10.4px 26px 5px var(--var-shadow), 10.8px 27px 10px var(--var-shadow), 11.6px 28px 15px var(--var-shadow);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+#studentPanelPage > main nav ul li:nth-child(1) {
+  --color: #ff008a;
+}
+#studentPanelPage > main nav ul li:nth-child(2) {
+  --color: #ba6adb;
+}
+#studentPanelPage > main nav ul li:nth-child(3) {
+  --color: #355ba6;
+}
+#studentPanelPage > main nav ul li:nth-child(4) {
+  --color: #61a4f5;
+}
+#studentPanelPage > main nav ul li:nth-child(5) {
+  --color: #66dada;
+}
+#studentPanelPage > main nav button {
+  width: 7em;
+  border: none;
+  background: none;
+  font-size: 1.3em;
+  font-weight: 500;
+  padding: 0.6em;
+}
+#studentPanelPage > main .summary {
+  --border-thick: 5px;
+  --title-offset: 7px;
+  --h3-width: 264px;
+  --h3-margin: 25px;
+  width: 100%;
+  background: linear-gradient(to bottom, #f0f1f5, white);
+  border: var(--border-thick) solid white;
+  box-shadow: 0 0 8px #b3b3b3;
+  border-radius: calc(var(--border-radius) / 4);
+  position: relative;
+}
+#studentPanelPage > main .summary::before {
+  content: "";
+  --overflow: 20px;
+  width: calc(var(--h3-width) + var(--overflow));
+  position: absolute;
+  top: calc(-1 * (var(--border-thick) + var(--title-offset)));
+  height: var(--title-offset);
+  right: calc(var(--h3-margin) - var(--overflow) / 2);
+  border-radius: 9px 9px 0 0;
+}
+#studentPanelPage > main .summary h3 {
+  margin: 0;
+  margin-right: var(--h3-margin);
+  width: var(--h3-width);
+  text-align: center;
+  color: white;
+  padding: 1em 0;
+  position: relative;
+  bottom: calc(var(--border-thick) + var(--title-offset));
+  border-radius: 0 0 40px 40px;
+}
+#studentPanelPage > main .summary h3 .crumb {
+  display: none;
+  --size: 1.2em;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: var(--size);
+  height: var(--size);
+  overflow: hidden;
+}
+#studentPanelPage > main .summary h3 .crumb .in {
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+#studentPanelPage > main .summary h3 .crumb .in::before {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  background: linear-gradient(90deg, purple, green, hotpink);
+  z-index: -1;
+  filter: blur(20px);
+}
+#studentPanelPage > main .summary .items {
+  padding: 2em 1em;
+}
+#studentPanelPage > main .summary .items .item {
+  font-size: 0.9em;
+  padding: 0.3em 1em;
+  background-color: #ededed;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+#studentPanelPage > main .summary .items .item:nth-child(2n) {
+  background-color: transparent;
+}
+#studentPanelPage > main .summary .items .item i {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #08579e;
+  position: relative;
+}
+#studentPanelPage > main .summary .items .item i::after {
+  content: "کپی شد!";
+  position: absolute;
+  right: -76px;
+  font-family: "IRANSansX";
+  background: grey;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 20px 20px 20px 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.1s;
+}
+#studentPanelPage > main .summary .items .item i.copied::after {
+  bottom: 50%;
+  opacity: 100;
+}
+#studentPanelPage > main .summary .items .item a {
+  color: #08579e;
+  font-weight: bold;
+}
+#studentPanelPage > main .summary button {
+  font-weight: bold;
+  width: var(--h3-width);
+  margin-right: var(--h3-margin);
+  display: block;
+  margin-bottom: 1em;
+  color: white;
+  border: none;
+  border-radius: calc(var(--border-radius) / 6);
+  padding: 0.6em 0;
+}
+#studentPanelPage > main .summary:nth-of-type(1)::before {
+  background-color: #a81b43;
+}
+#studentPanelPage > main .summary:nth-of-type(1) h3,
+#studentPanelPage > main .summary:nth-of-type(1) button {
+  background: linear-gradient(0deg, #d32f4f 0%, #a81b43 85%, #ff435a 100%);
+}
+#studentPanelPage > main .summary:nth-of-type(2)::before {
+  background-color: #08579e;
+}
+#studentPanelPage > main .summary:nth-of-type(2) h3,
+#studentPanelPage > main .summary:nth-of-type(2) button {
+  background: linear-gradient(0deg, #0062a5 0%, #08579e 85%, #0096d1 100%);
+}
+#studentPanelPage > main .summary:nth-of-type(3)::before {
+  background-color: #0a7055;
+}
+#studentPanelPage > main .summary:nth-of-type(3) h3,
+#studentPanelPage > main .summary:nth-of-type(3) button {
+  background: linear-gradient(0deg, #0b9973 0%, #0a7055 85%, #0cc191 100%);
+}
+#studentPanelPage > main .summary:nth-of-type(4)::before {
+  background-color: #f15a24;
+}
+#studentPanelPage > main .summary:nth-of-type(4) h3,
+#studentPanelPage > main .summary:nth-of-type(4) button {
+  background: linear-gradient(0deg, #f7931e 0%, #f15a24 85%, #f7931e 100%);
+}
+#studentPanelPage > main #myPractice {
+  --blue: #4fc2f8;
+  position: relative;
+  padding-top: 4.3em;
+  margin-bottom: 15em !important;
+}
+#studentPanelPage > main #myPractice h2 {
+  color: var(--blue);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 2.5em;
+  font-size: 2em;
+}
+#studentPanelPage > main #myPractice .pad {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+  position: relative;
+  height: 45em;
+  border: 1.5em solid var(--blue);
+  border-bottom-width: 4.5em;
+  border-radius: 18px;
+  padding: 2em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+}
+#studentPanelPage > main #myPractice .pad::before {
+  content: "";
+  background: url("Content/images/Student Panel/Asset 6.png");
+  position: absolute;
+  bottom: calc(100% - 0.7em);
+  width: 15em;
+  height: 7em;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#studentPanelPage > main #myPractice .pad::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  --size: 9em;
+  border-top: var(--size) solid #eee;
+  border-right: var(--size) solid #4ab4e4;
+}
+#studentPanelPage > main #myPractice .pad aside {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex: 2;
+}
+#studentPanelPage > main #myPractice .pad aside .sessions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 91%;
+  overflow: scroll;
+}
+#studentPanelPage > main #myPractice .pad aside .sessions span {
+  border: 2px solid var(--blue);
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.4em 0;
+  font-weight: bold;
+  margin-bottom: 0.7em;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#studentPanelPage > main #myPractice .pad aside .sessions span.active {
+  background-color: var(--blue);
+  color: white;
+}
+#studentPanelPage > main #myPractice .pad aside button {
+  background-color: var(--blue);
+  border: none;
+  padding: 0.4em 0;
+  font-weight: 500;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1.3em;
+}
+#studentPanelPage > main #myPractice .pad main {
+  flex: 8;
+  max-height: 96%;
+  overflow: scroll;
+  display: none;
+}
+#studentPanelPage > main #myPractice .pad main.active {
+  display: block;
+}
+#studentPanelPage > main #myPractice .pad main .item {
+  padding: 1em 2em;
+  border: 2px solid #d6d6d6;
+  border-radius: 15px;
+  margin-bottom: 0.5em;
+}
+#studentPanelPage > main #myPractice::before, #studentPanelPage > main #myPractice::after {
+  content: "";
+  background: url("Content/images/Student Panel/Asset 7.png");
+  background-size: cover;
+  --width: 35vw;
+  width: var(--width);
+  height: var(--width);
+  position: absolute;
+  z-index: 1;
+  bottom: -10em;
+  right: 0;
+}
+#studentPanelPage > main #myPractice::after {
+  background-image: url("Content/images/Student Panel/Asset 8.png");
+  left: 0;
+  right: unset;
+  z-index: -2;
+}
+#studentPanelPage > main .practiceModal {
+  --green: #00a99e;
+  color: #5b5b5b;
+  padding: 0 8em;
+}
+#studentPanelPage > main .practiceModal h3 {
+  color: var(--green);
+  margin: 0 1em;
+  margin-bottom: 1em;
+}
+#studentPanelPage > main .practiceModal .part {
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  margin-bottom: 2em;
+  position: relative;
+  padding: 1em;
+}
+#studentPanelPage > main .practiceModal .part i.fa-plus-circle {
+  position: absolute;
+  left: 0.7em;
+  top: 0.4em;
+  color: var(--green);
+  font-size: 1.8em;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#studentPanelPage > main .practiceModal .part i.fa-plus-circle:hover {
+  color: inherit;
+}
+#studentPanelPage > main .practiceModal .part .input {
+  position: relative;
+  max-height: 2em;
+  transition: 0.2s;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+#studentPanelPage > main .practiceModal .part .input label {
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  width: 70%;
+  display: block;
+  margin: auto;
+  padding: 0.1em 1em;
+  cursor: pointer;
+}
+#studentPanelPage > main .practiceModal .part .input label input {
+  display: none;
+}
+#studentPanelPage > main .practiceModal .part .input label span:empty::before {
+  content: "انتخاب فایل";
+}
+#studentPanelPage > main .practiceModal .part .input i.fa-times {
+  position: absolute;
+  left: 2%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  cursor: pointer;
+  padding: 0 0.4em;
+}
+#studentPanelPage > main .practiceModal .part .input.hidden {
+  max-height: 0;
+  margin: 0;
+}
+#studentPanelPage > main .practiceModal .textPart textarea {
+  display: block;
+  border: 2px solid var(--green);
+  font-family: iransansx;
+  padding: 0.7em 2em;
+  font-size: 0.9em;
+  resize: none;
+  transition: 0.1s;
+  margin: 0;
+  margin-bottom: 2em;
+  width: 100%;
+  border-radius: 25px;
+  background-color: inherit;
+}
+#studentPanelPage > main .practiceModal .textPart textarea:focus {
+  outline: none;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.231372549);
+}
+#studentPanelPage > main .practiceModal > button {
+  border: none;
+  background-color: var(--green);
+  color: white;
+  border-radius: 17px;
+  font-size: 1.2em;
+  font-weight: 800;
+  padding: 0.1em 1.8em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: iransansx;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  font-family: iransansx;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --border-radius: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Content/fontawesome-all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script src="app.js" defer> </script>
+  </head>
+  <body>
+    <section id="studentPanelPage">
+      <header> 
+        <div class="right"> <img class="logo" src="Content/images/Student Panel/1p.png" alt="Tahlildadeh">
+          <p>
+            رمز اسپات پلیر را از قسمت مربوطه دریافت کنید.
+            سورس کد‌های پروژه قابل دانلود هستند.
+            می‌توانید تمرینات و تکالیف را دریافت کنید و تمرینات حل شده را به همراه عکس، فیلم، و سورس کد بارگذاری
+            نمایید.
+            در قسمت تمرینات من کل فعالیت های شما در خصوص تمرینات قابل دسترسی و برسی است.
+          </p>
+        </div><img class="header" src="Content/images/Student Panel/Asset 5.png" alt="Tahlildadeh academy"><img class="side" src="Content/images/Student Panel/Academy-Side.png" alt="Tahlildadeh academy">
+      </header>
+      <main> 
+        <nav> 
+          <h2>سلام رضا!</h2>
+          <ul> 
+            <li>
+              <div> </div>
+            </li>
+            <li> <a href="#spotPlayer">رمز اسپات پلیر </a></li>
+            <li> <a href="#source">سورس کد جلسات</a></li>
+            <li> <a href="#tasks">لیست تکالیف</a></li>
+            <li> <a href="#myPractice">تمرین‌های من</a></li>
+          </ul>
+          <button>خروج</button>
+        </nav>
+        <div class="summary" id="spotPlayer">
+          <h3>
+            <div class="crumb"> 
+              <div class="in"></div>
+            </div>رمز اسپات پلیر
+          </h3>
+          <div class="items"> 
+            <div class="item"><span>دوره آموزش طراحی سایت - تابستان 98</span><span>1397/5/25</span><span class="code">sadf54d6h54ds6gf4d6f5g4df6</span><i class="far fa-copy"></i></div>
+            <div class="item"><span>دوره آموزش طراحی سایت - زمستان 97</span><span>1397/5/25</span><span class="code">sklsgwgcs5c5f5e6er4e654eg5r</span><i class="far fa-copy"></i></div>
+          </div>
+          <button>بستن</button>
+        </div>
+        <div class="summary" id="source">
+          <h3>
+            <div class="crumb"> 
+              <div class="in"></div>
+            </div>سورس کد جلسات
+          </h3>
+          <div class="items"> 
+            <div class="item"><span>دوره آموزش طراحی سایت - زمستان 97</span><span>1397/5/25</span><span>جلسه اول</span><a href="#">دانلود</a></div>
+            <div class="item"><span>دوره آموزش طراحی سایت - زمستان 97</span><span>1397/6/03</span><span>جلسه دوم</span><a href="#">دانلود</a></div>
+            <div class="item"><span>دوره آموزش طراحی سایت - زمستان 97</span><span>1397/6/18</span><span>جلسه سوم</span><a href="#">دانلود</a></div>
+          </div>
+          <button>بستن</button>
+        </div>
+        <div class="summary" id="tasks">
+          <h3>
+            <div class="crumb"> 
+              <div class="in"></div>
+            </div>لیست تکالیف
+          </h3>
+          <div class="items"> 
+            <div class="item"><span>دوره آموزش طراحی سایت - زمستان 97</span><span>1397/5/25</span><span>جلسه اول</span><span>توضیح مختصر:</span></div>
+            <div class="item">یک div با شکل مربع کشیده شود.</div>
+            <div class="item"><span>دوره آموزش طراحی سایت - زمستان 97</span><span>1397/6/03</span><span>جلسه دوم</span><span>توضیح مختصر:</span></div>
+            <div class="item">یک صفحه کامل با استفاده از html و css طراحی شود که بتواند با سایت معتبر دیجی کالا در تمام زمینه ها رقابت کند!</div>
+          </div>
+          <button>بستن</button>
+        </div>
+        <section class="fullScreen" id="myPractice"> 
+          <h2>تمرین های من</h2>
+          <div class="pad">
+            <main class="active" id="session1" data-group="padMain">
+              <div class="item">جلسه 1 در نمونه 1</div>
+              <div class="item">جلسه 1 در نمونه 2</div>
+              <div class="item">جلسه 1 در نمونه 3</div>
+              <div class="item">جلسه 1 در نمونه 4</div>
+              <div class="item">جلسه 1 در نمونه 5</div>
+            </main>
+            <main id="session2" data-group="padMain">
+              <div class="item">جلسه 2 در نمونه 1</div>
+              <div class="item">جلسه 2 در نمونه 2</div>
+              <div class="item">جلسه 2 در نمونه 3</div>
+              <div class="item">جلسه 2 در نمونه 4</div>
+              <div class="item">جلسه 2 در نمونه 5</div>
+            </main>
+            <main id="session3" data-group="padMain">
+              <div class="item">جلسه 3 در نمونه 1</div>
+              <div class="item">جلسه 3 در نمونه 2</div>
+              <div class="item">جلسه 3 در نمونه 3</div>
+              <div class="item">جلسه 3 در نمونه 4</div>
+              <div class="item">جلسه 3 در نمونه 5</div>
+            </main>
+            <main id="session4" data-group="padMain">
+              <div class="item">جلسه 4 در نمونه 1</div>
+              <div class="item">جلسه 4 در نمونه 2</div>
+              <div class="item">جلسه 4 در نمونه 3</div>
+              <div class="item">جلسه 4 در نمونه 4</div>
+              <div class="item">جلسه 4 در نمونه 5</div>
+            </main>
+            <main id="session5" data-group="padMain">
+              <div class="item">جلسه 5 در نمونه 1</div>
+              <div class="item">جلسه 5 در نمونه 2</div>
+              <div class="item">جلسه 5 در نمونه 3</div>
+              <div class="item">جلسه 5 در نمونه 4</div>
+              <div class="item">جلسه 5 در نمونه 5</div>
+            </main>
+            <main id="session6" data-group="padMain">
+              <div class="item">جلسه 6 در نمونه 1</div>
+              <div class="item">جلسه 6 در نمونه 2</div>
+              <div class="item">جلسه 6 در نمونه 3</div>
+              <div class="item">جلسه 6 در نمونه 4</div>
+              <div class="item">جلسه 6 در نمونه 5</div>
+            </main>
+            <main id="session7" data-group="padMain">
+              <div class="item">جلسه 7 در نمونه 1</div>
+              <div class="item">جلسه 7 در نمونه 2</div>
+              <div class="item">جلسه 7 در نمونه 3</div>
+              <div class="item">جلسه 7 در نمونه 4</div>
+              <div class="item">جلسه 7 در نمونه 5</div>
+            </main>
+            <main id="session8" data-group="padMain">
+              <div class="item">جلسه 8 در نمونه 1</div>
+              <div class="item">جلسه 8 در نمونه 2</div>
+              <div class="item">جلسه 8 در نمونه 3</div>
+              <div class="item">جلسه 8 در نمونه 4</div>
+              <div class="item">جلسه 8 در نمونه 5</div>
+            </main>
+            <main id="session9" data-group="padMain">
+              <div class="item">جلسه 9 در نمونه 1</div>
+              <div class="item">جلسه 9 در نمونه 2</div>
+              <div class="item">جلسه 9 در نمونه 3</div>
+              <div class="item">جلسه 9 در نمونه 4</div>
+              <div class="item">جلسه 9 در نمونه 5</div>
+            </main>
+            <main id="session10" data-group="padMain">
+              <div class="item">جلسه 10 در نمونه 1</div>
+              <div class="item">جلسه 10 در نمونه 2</div>
+              <div class="item">جلسه 10 در نمونه 3</div>
+              <div class="item">جلسه 10 در نمونه 4</div>
+              <div class="item">جلسه 10 در نمونه 5</div>
+            </main>
+            <main id="session11" data-group="padMain">
+              <div class="item">جلسه 11 در نمونه 1</div>
+              <div class="item">جلسه 11 در نمونه 2</div>
+              <div class="item">جلسه 11 در نمونه 3</div>
+              <div class="item">جلسه 11 در نمونه 4</div>
+              <div class="item">جلسه 11 در نمونه 5</div>
+            </main>
+            <main id="session12" data-group="padMain">
+              <div class="item">جلسه 12 در نمونه 1</div>
+              <div class="item">جلسه 12 در نمونه 2</div>
+              <div class="item">جلسه 12 در نمونه 3</div>
+              <div class="item">جلسه 12 در نمونه 4</div>
+              <div class="item">جلسه 12 در نمونه 5</div>
+            </main>
+            <main id="session13" data-group="padMain">
+              <div class="item">جلسه 13 در نمونه 1</div>
+              <div class="item">جلسه 13 در نمونه 2</div>
+              <div class="item">جلسه 13 در نمونه 3</div>
+              <div class="item">جلسه 13 در نمونه 4</div>
+              <div class="item">جلسه 13 در نمونه 5</div>
+            </main>
+            <main id="session14" data-group="padMain">
+              <div class="item">جلسه 14 در نمونه 1</div>
+              <div class="item">جلسه 14 در نمونه 2</div>
+              <div class="item">جلسه 14 در نمونه 3</div>
+              <div class="item">جلسه 14 در نمونه 4</div>
+              <div class="item">جلسه 14 در نمونه 5</div>
+            </main>
+            <main id="session15" data-group="padMain">
+              <div class="item">جلسه 15 در نمونه 1</div>
+              <div class="item">جلسه 15 در نمونه 2</div>
+              <div class="item">جلسه 15 در نمونه 3</div>
+              <div class="item">جلسه 15 در نمونه 4</div>
+              <div class="item">جلسه 15 در نمونه 5</div>
+            </main>
+            <main id="session16" data-group="padMain">
+              <div class="item">جلسه 16 در نمونه 1</div>
+              <div class="item">جلسه 16 در نمونه 2</div>
+              <div class="item">جلسه 16 در نمونه 3</div>
+              <div class="item">جلسه 16 در نمونه 4</div>
+              <div class="item">جلسه 16 در نمونه 5</div>
+            </main>
+            <aside> 
+              <div class="sessions"> <span class="active" data-onclick="active" data-group="padSession" data-target="#session1">جلسه 1</span><span data-onclick="active" data-group="padSession" data-target="#session2">جلسه 2</span><span data-onclick="active" data-group="padSession" data-target="#session3">جلسه 3</span><span data-onclick="active" data-group="padSession" data-target="#session4">جلسه 4</span><span data-onclick="active" data-group="padSession" data-target="#session5">جلسه 5</span><span data-onclick="active" data-group="padSession" data-target="#session6">جلسه 6</span><span data-onclick="active" data-group="padSession" data-target="#session7">جلسه 7</span><span data-onclick="active" data-group="padSession" data-target="#session8">جلسه 8</span><span data-onclick="active" data-group="padSession" data-target="#session9">جلسه 9</span><span data-onclick="active" data-group="padSession" data-target="#session10">جلسه 10</span><span data-onclick="active" data-group="padSession" data-target="#session11">جلسه 11</span><span data-onclick="active" data-group="padSession" data-target="#session12">جلسه 12</span><span data-onclick="active" data-group="padSession" data-target="#session13">جلسه 13</span><span data-onclick="active" data-group="padSession" data-target="#session14">جلسه 14</span><span data-onclick="active" data-group="padSession" data-target="#session15">جلسه 15</span><span data-onclick="active" data-group="padSession" data-target="#session16">جلسه 16</span>
+              </div><a href="#practiceModal"> 
+                <button>افزودن                    </button></a>
+            </aside>
+          </div>
+        </section>
+        <form class="practiceModal">
+          <div class="textPart">
+            <h3>متن</h3>
+            <textarea id="" name="" cols="" rows="8" placeholder="متن مورد نظر را وارد کنید:"> </textarea>
+          </div>
+          <div class="part"> 
+            <h3>تصویر</h3><i class="fas fa-plus-circle"></i>
+            <div class="input"> 
+              <label for="photo-1"> <span></span>
+                <input type="file" id="photo-1">
+              </label><i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="part"> 
+            <h3>فیلم</h3><i class="fas fa-plus-circle"></i>
+            <div class="input"> 
+              <label for="film-1"> <span></span>
+                <input type="file" id="film-1">
+              </label><i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="part"> 
+            <h3>سورس کد</h3><i class="fas fa-plus-circle"></i>
+            <div class="input"> 
+              <label for="source-1"> <span></span>
+                <input type="file" id="source-1">
+              </label><i class="fas fa-times"></i>
+            </div>
+          </div>
+          <button type="submit">ارسال</button>
+        </form>
+        <section class="chat">
+          <header>چت و گفتگو!</header>
+          <form>
+            <textarea></textarea>
+            <button>ارسال    </button>
+          </form>
+          <div class="veiw"> 
+                    <div>
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="پویان"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div>
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+                    <div class="others">
+                      <div class="icon" data-user="اکبر"></div><span>سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟سلام آیا میشه در دوره به صورت غیر حضوری شرکت کرد؟</span>
+                    </div>
+          </div>
+        </section>
+      </main>
+    </section>
+  </body>
+</html>
