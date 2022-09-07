@@ -100,6 +100,9 @@ $(function () {
     item.onclick = () => {
       let copyText = item.parentElement.querySelector('.code').innerHTML;
       navigator.clipboard.writeText(copyText);
+      dc.queries('#spotPlayer i.copied').forEach(i=>{
+        i.classList.remove('copied')
+      })
       item.classList.add('copied');
       setTimeout(() => {
         item.classList.remove('copied')
