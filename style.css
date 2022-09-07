@@ -259,12 +259,19 @@ section.chat form button:hover {
   bottom: 0;
   left: 0;
   width: 100%;
+  z-index: 1;
 }
 #studentPanelPage > header > .side {
   position: absolute;
   right: -70px;
   bottom: 0;
   height: 100%;
+}
+#studentPanelPage > header .top {
+  position: absolute;
+  top: -9em;
+  left: 0;
+  width: 43em;
 }
 #studentPanelPage > main {
   margin: 0 7vw;
@@ -585,8 +592,10 @@ section.chat form button:hover {
   width: 100%;
   max-height: 91%;
   overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 #studentPanelPage > main #myPractice .pad aside .sessions::-webkit-scrollbar {
   display: none;
@@ -619,11 +628,13 @@ section.chat form button:hover {
 }
 #studentPanelPage > main #myPractice .pad main {
   flex: 8;
-  max-height: 96%;
+  max-height: 78%;
   overflow-y: scroll;
   display: none;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 #studentPanelPage > main #myPractice .pad main::-webkit-scrollbar {
   display: none;
@@ -668,7 +679,7 @@ section.chat form button:hover {
   content: "";
   background: url("Content/images/Student Panel/Asset 7.png");
   background-size: cover;
-  --width: 35vw;
+  --width: 30vw;
   width: var(--width);
   height: var(--width);
   position: absolute;
@@ -681,6 +692,7 @@ section.chat form button:hover {
   left: 0;
   right: unset;
   z-index: -2;
+  background-position: right;
 }
 #studentPanelPage > main #practiceModal {
   --green: #00a99e;
