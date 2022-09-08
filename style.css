@@ -409,7 +409,7 @@ section#chat form button:hover {
 }
 #studentPanelPage > main nav > div a.chat::before {
   content: "";
-  background: url("/0Export/Content/images/Student Panel/Asset10.png");
+  background: url("./Content/images/Student Panel/Asset10.png");
   width: 16em;
   height: 11em;
   position: absolute;
