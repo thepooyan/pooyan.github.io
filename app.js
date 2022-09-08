@@ -201,7 +201,7 @@ $(function () {
 
   //scroll chat to the end
   function scrollChat() {
-    let chat = dc.query('.chat .veiw');
+    let chat = dc.query('#chat .veiw');
     chat.scrollTo(0, chat.scrollHeight + 500)
   }
   setTimeout(() => {
@@ -222,7 +222,7 @@ $(function () {
 
   //create massage in chat
   function createMsg(text) {
-    let chat = dc.query('.chat .veiw');
+    let chat = dc.query('#chat .veiw');
     let msg = chat.query('div:not(.others)');
     let newMsg = msg.cloneNode(true);
 
@@ -240,25 +240,25 @@ $(function () {
   }
 
   //chat submit
-  dc.query('.chat form').onsubmit = (e) => {
+  dc.query('#chat form').onsubmit = (e) => {
     chatSubmit(e);
   };
 
   function chatSubmit(e) {
     if (e.preventDefault) e.preventDefault();
-    let label = dc.query('.chat form label');
+    let label = dc.query('#chat form label');
 
     let inputTxt = label.innerText;
     inputTxt = inputTxt.replace(/\n/g, '<br/>');  //replace /n with br tag
     inputTxt = inputTxt.replace(/(<br\/>)+$/g, ''); //remove one or more occurence of br tag at the end of text
 
-    dc.query('.chat .veiw').appendChild(createMsg(inputTxt));
+    dc.query('#chat .veiw').appendChild(createMsg(inputTxt));
     scrollChat();
     label.innerText = '';
   }
 
   //chat input details
-  dc.query('.chat label').onkeydown = (e) => {
+  dc.query('#chat label').onkeydown = (e) => {
     if (e.keyCode == 13 && !e.shiftKey) {
       chatSubmit(e);
     }
