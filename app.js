@@ -81,7 +81,7 @@ $(function () {
   })
 
   // Add smooth scrolling to all links
-  $("a").on('click', function (event) {
+  $("a[href^='#'].smooth").on('click', function (event) {
     if (this.hash !== "") {
       event.preventDefault();
       var hash = this.hash;
@@ -100,7 +100,7 @@ $(function () {
     item.onclick = () => {
       let copyText = item.parentElement.querySelector('.code').innerHTML;
       navigator.clipboard.writeText(copyText);
-      dc.queries('#spotPlayer i.copied').forEach(i=>{
+      dc.queries('#spotPlayer i.copied').forEach(i => {
         i.classList.remove('copied')
       })
       item.classList.add('copied');
@@ -182,11 +182,6 @@ $(function () {
             if (index == inputs.length - 1) return
             i.remove();
           })
-          console.log(item)
-
-          // for (let m=0; m < inputs.length; m++) {
-          //   console.log(inputs[m])
-          // }
         }
       })
     }
@@ -202,39 +197,55 @@ $(function () {
   //scroll chat to the end
   function scrollChat() {
     let chat = dc.query('#chat .veiw');
-    chat.scrollTo(0, chat.scrollHeight + 500)
+    $('#chat .veiw').animate({
+      scrollTop: chat.scrollHeight + 500
+    }, 900);
   }
-  setTimeout(() => {
-    scrollChat()
-  }, 200);
 
   //get time in am/pm
   function formatAMPM(date) {
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    var strTime = hours + ':' + minutes + ' ' + ampm;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    let strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
 
+  let isReply = false;
   //create massage in chat
   function createMsg(text) {
     let chat = dc.query('#chat .veiw');
-    let msg = chat.query('div:not(.others)');
+    let msg = chat.query('.sample');
     let newMsg = msg.cloneNode(true);
+
+    //remove sample class
+    newMsg.classList.remove('sample')
 
     //change username
     newMsg.querySelector('div').dataset.user = 'من';
 
     //change the inner text
-    newMsg.querySelector('span').innerHTML = text;
+    newMsg.querySelector('span .txt').innerHTML = text;
 
     //change time
     let time = formatAMPM(new Date());
     newMsg.querySelector('span').dataset.time = time;
+
+    //new ID
+    let lastId = dc.query('#chat .veiw > div:last-child').id;
+    newMsg.id = ++lastId;
+
+    //add reply
+    if (isReply) {
+      let a = document.createElement('a')
+      a.href = `#${isReply.id}`;
+      a.innerHTML = isReply.user;
+      a.onclick = (e) => {scrollReplyEvnt(a, e)}
+      newMsg.querySelector('span').appendChild(a);
+    }
 
     return newMsg
   }
@@ -246,25 +257,117 @@ $(function () {
 
   function chatSubmit(e) {
     if (e.preventDefault) e.preventDefault();
-    let label = dc.query('#chat form label');
+    let input = dc.query('#chat form .input');
 
-    let inputTxt = label.innerText;
+    let inputTxt = input.innerText;
+    if (!inputTxt) return;
     inputTxt = inputTxt.replace(/\n/g, '<br/>');  //replace /n with br tag
     inputTxt = inputTxt.replace(/(<br\/>)+$/g, ''); //remove one or more occurence of br tag at the end of text
 
     dc.query('#chat .veiw').appendChild(createMsg(inputTxt));
+    setReplyEvnt();
     scrollChat();
-    label.innerText = '';
+    mergeMsg();
+    closeReply();
+    input.innerText = '';
   }
 
+  let br = false;
   //chat input details
-  dc.query('#chat label').onkeydown = (e) => {
+  dc.query('#chat .input').onkeydown = (e) => {
     if (e.keyCode == 13 && !e.shiftKey) {
       chatSubmit(e);
     }
   }
 
+  dc.query('#chat .input').onkeyup = (e) => {
+    if (e.target.innerHTML === "<br>")
+      e.target.innerHTML = '';
+  }
+
+  //merge massages
+  function mergeMsg() {
+    let prevUser, prevType;
+    dc.queries('#chat .veiw > div').forEach(item => {
+      let user = item.querySelector('div').dataset.user;
+      let type = item.classList.contains('others') ? true : false;
+      if (user === prevUser && type === prevType)
+        item.classList.add('merge')
+      prevUser = user;
+      prevType = type;
+    })
+  }
+
+  //reply
+  let replySec = dc.query('#chat .reply');
+  function closeReply() {
+    replySec.classList.add('closed')
+    isReply = false;
+  }
+  function openReply(trg) {
+    replySec.classList.remove('closed');
+    let clone = trg.cloneNode(true);
+    replySec.query('div').replaceWith(clone)
+    dc.query('#chat form > div').focus();
+    let id = dc.query('#chat .reply > div').id;
+    let user = replySec.query('.icon').dataset.user;
+    isReply = { user, id };
+  }
+  function setReplyEvnt() {
+    dc.queries('#chat .veiw > div').forEach(item => {
+      item.querySelector('i').onclick = () => { openReply(item) };
+    })
+  }
+  setReplyEvnt();
+  dc.query('#chat .reply > i ').onclick = closeReply;
+
+  //getDown
+  let getDown = dc.query('#chat .wrap .getDown');
+  getDown.onclick = scrollChat;
 
 
+  //scroll events
+  let chatVeiw = dc.query('#chat .veiw');
+  chatVeiw.onscroll = () => {
+    let scrollHeight = chatVeiw.scrollHeight - chatVeiw.offsetHeight;
+    // console.log(`${chatVeiw.scrollTop} of ${scrollHeight}`)
+    if (chatVeiw.scrollTop >= scrollHeight) {
+      getDown.classList.remove('active')
+    } else {
+      getDown.classList.add('active')
+    }
+  }
 
+  //scroll to reply
+  dc.queries('#chat .veiw > div span a').forEach(item => {
+    item.onclick = (e) => {scrollReplyEvnt(item, e)};
+  })
+
+  function scrollReplyEvnt(item, e) {
+    if (item.hash !== "") {
+      e.preventDefault();
+      var hash = item.getAttribute('href');
+      let target = dc.id(hash.substring(1));
+
+      let header = dc.query('#chat header')
+
+      $('#chat .veiw').animate(
+        { scrollTop: target.offsetTop - header.offsetHeight - (chatVeiw.offsetHeight / 2), },
+        900,
+        () => { heighlightTrg(target) }
+        );
+
+      //heighlight reply
+      function heighlightTrg(trg) {
+        trg.classList.add('blink')
+        trg.addEventListener('animationend', () => {
+          trg.classList.remove('blink')
+        }, { once: true })
+      }
+
+    }
+  }
+
+  mergeMsg();
+  scrollChat();
 })

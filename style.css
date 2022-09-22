@@ -55,177 +55,6 @@
   font-weight: normal;
   src: url("Font/IRANSansWeb/woff2/IRANSansXFaNum-Regular.woff2") format("woff2"), url("Font/IRANSansWeb/woff/IRANSansXFaNum-Regular.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Regular.ttf") format("ttf");
 }
-section#chat {
-  background-color: #fff;
-  box-shadow: 2px 2px 10px #6497bc;
-  border: 2px solid #7fcedd;
-  margin: auto;
-  border-radius: 14px;
-  height: 140vh;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-section#chat header {
-  font-size: 3em;
-  position: relative;
-  font-weight: 900;
-  color: #f39200;
-  text-align: center;
-  padding: 1.6em 0;
-  position: relative;
-  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.0901960784);
-  z-index: 5;
-}
-section#chat header::before, section#chat header::after {
-  content: "";
-  position: absolute;
-}
-section#chat header::before {
-  right: 2em;
-  background-image: url("./Content/images/Student Panel/HappyQA2.png");
-  height: 4em;
-  width: 6.1em;
-  background-size: cover;
-  z-index: 4;
-  bottom: 0.01em;
-}
-section#chat header::after {
-  background-image: url("./Content/images/Student Panel/Chat.png");
-  left: 0;
-  height: 6.4em;
-  width: 9em;
-  background-size: cover;
-  z-index: 4;
-  bottom: 0;
-}
-section#chat .veiw {
-  background-color: #f5f5f5;
-  color: #42515a;
-  padding: 2em 1em;
-  overflow-y: scroll;
-  /* width */
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-}
-section#chat .veiw::-webkit-scrollbar {
-  width: 8px;
-}
-section#chat .veiw::-webkit-scrollbar-track {
-  background-color: #f5f5f5;
-}
-section#chat .veiw::-webkit-scrollbar-thumb {
-  background: #d6d6d6;
-  border-radius: 8px;
-}
-section#chat .veiw::-webkit-scrollbar-thumb:hover {
-  background: #3bc6d8;
-}
-section#chat .veiw > *:not(.date) {
-  display: flex;
-  justify-content: fs;
-  align-items: center;
-  flex-direction: row;
-  flex-direction: row;
-  padding-bottom: 2.5em;
-}
-section#chat .veiw > *:not(.date) .icon {
-  --wid: 4em;
-  width: var(--wid);
-  height: var(--wid);
-  background: url("./Content/images/img/Asset 4.png");
-  background-size: contain;
-  border-radius: 50%;
-  position: relative;
-  flex-shrink: 0;
-}
-section#chat .veiw > *:not(.date) .icon::before {
-  content: attr(data-user);
-  position: absolute;
-  top: calc(100% + 0.2em);
-  width: 0;
-  left: 50%;
-  display: flex;
-  justify-content: center;
-  font-size: 0.9em;
-  font-weight: 800;
-}
-section#chat .veiw > *:not(.date) span {
-  background-color: #7fcedd;
-  padding: 1em;
-  border-radius: 25px 25px 0 25px;
-  margin: 0 1em;
-  position: relative;
-  font-size: 0.8em;
-  font-weight: 500;
-}
-section#chat .veiw > *:not(.date) span::before {
-  content: attr(data-time);
-  position: absolute;
-  top: calc(100% + 0.2em);
-  right: 0;
-  direction: ltr;
-}
-section#chat .veiw .others {
-  flex-direction: row-reverse;
-}
-section#chat .veiw .others .icon {
-  background-image: url("./Content/images/img/Asset 2.png");
-}
-section#chat .veiw .others span {
-  background-color: #C8E0FC;
-  border-radius: 25px 25px 25px 0;
-}
-section#chat .veiw .others span::before {
-  right: unset;
-  left: 0;
-}
-section#chat .veiw .date {
-  margin: 1em auto;
-  display: block;
-  text-align: center;
-  background: #d6d6d6;
-  width: max-content;
-  padding: 0.2em 1em;
-  border-radius: 10px;
-}
-section#chat form {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  gap: 1em;
-  padding: 0.8em 0.5em;
-  background: #7fcedd;
-}
-section#chat form label {
-  background: #f5f5f5;
-  flex: 0 0 90%;
-  font-family: inherit;
-  border-radius: 5px;
-  color: #42515a;
-  padding: 0.5em 1.1em;
-  font-size: 0.9em;
-  cursor: auto;
-}
-section#chat form label input {
-  display: none;
-}
-section#chat form label:focus {
-  outline: none;
-}
-section#chat form button {
-  flex: 0 0 7%;
-  border-radius: 10px;
-  border: none;
-  padding: 0.5em 0;
-  transition: 0.2s;
-}
-section#chat form button:hover {
-  background-color: #e5e5e5;
-}
-
 #studentPanelPage a {
   color: #08579e;
   font-weight: bold;
@@ -818,6 +647,330 @@ section#chat form button:hover {
   font-size: 1.2em;
   font-weight: 800;
   padding: 0.1em 1.8em;
+}
+
+section#chat {
+  --question: #7fcedd;
+  --answer: #C8E0FC;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #6497bc;
+  border: 2px solid var(--question);
+  margin: auto;
+  border-radius: 14px;
+  height: 140vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 1em !important;
+  position: relative;
+}
+section#chat header {
+  font-size: 3em;
+  position: relative;
+  font-weight: 900;
+  color: #f39200;
+  text-align: center;
+  padding: 1.6em 0;
+  position: relative;
+  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.0901960784);
+  z-index: 5;
+}
+section#chat header::before, section#chat header::after {
+  content: "";
+  position: absolute;
+}
+section#chat header::before {
+  right: 2em;
+  background-image: url("./Content/images/Student Panel/HappyQA2.png");
+  height: 4em;
+  width: 6.1em;
+  background-size: cover;
+  z-index: 4;
+  bottom: 0.01em;
+}
+section#chat header::after {
+  background-image: url("./Content/images/Student Panel/Chat.png");
+  left: 0;
+  height: 6.4em;
+  width: 9em;
+  background-size: cover;
+  z-index: 4;
+  bottom: 0;
+}
+section#chat .veiw {
+  background-color: #f5f5f5;
+  color: #42515a;
+  padding: 2em 0;
+  overflow-y: scroll;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+section#chat .veiw::-webkit-scrollbar {
+  width: 8px;
+}
+section#chat .veiw::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+section#chat .veiw::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+  border-radius: 8px;
+}
+section#chat .veiw::-webkit-scrollbar-thumb:hover {
+  background: #3bc6d8;
+}
+section#chat .veiw > *:not(.date, .getUp) {
+  display: flex;
+  justify-content: fs;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: row;
+  padding: 0.5em 1em;
+  padding-bottom: 2em;
+}
+section#chat .veiw > *:not(.date, .getUp).merge .icon {
+  display: none;
+}
+section#chat .veiw > *:not(.date, .getUp).merge span {
+  margin-right: 6em;
+}
+section#chat .veiw > *:not(.date, .getUp).merge.others span {
+  margin-right: unset;
+  margin-left: 6em;
+}
+section#chat .veiw > *:not(.date, .getUp).blink {
+  animation: blink 2s cubic-bezier(0.47, 0, 0.74, 0.71);
+}
+@keyframes blink {
+  0% {
+    background-color: #e3e3e3;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+section#chat .veiw > *:not(.date, .getUp) .icon {
+  --wid: 4em;
+  width: var(--wid);
+  height: var(--wid);
+  background: url("./Content/images/img/Asset 4.png");
+  background-size: contain;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+section#chat .veiw > *:not(.date, .getUp) .icon::before {
+  content: attr(data-user);
+  position: absolute;
+  top: calc(100% + 0.2em);
+  width: 0;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: 800;
+}
+section#chat .veiw > *:not(.date, .getUp) span {
+  background-color: var(--question);
+  padding: 1em 1.7em;
+  border-radius: 25px 25px 0 25px;
+  margin: 0 1em;
+  position: relative;
+  font-size: 0.8em;
+  font-weight: 500;
+  max-width: 45%;
+  text-align: justify;
+}
+section#chat .veiw > *:not(.date, .getUp) span::before {
+  content: attr(data-time);
+  position: absolute;
+  top: calc(100% + 0.2em);
+  right: 0;
+  direction: ltr;
+  white-space: nowrap;
+}
+section#chat .veiw > *:not(.date, .getUp) span a {
+  position: absolute;
+  left: 1em;
+  top: 100%;
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: inherit;
+  right: 5em;
+  text-align: left;
+  color: #0093ff;
+}
+section#chat .veiw > *:not(.date, .getUp) span a::before {
+  content: "پاسخ به: ";
+  color: #42515a;
+}
+section#chat .veiw > *:not(.date, .getUp) span a:empty {
+  display: none;
+}
+section#chat .veiw > *:not(.date, .getUp) span i {
+  color: grey;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  height: min-content;
+  margin: auto;
+  padding: 0.4em;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+section#chat .veiw .others {
+  flex-direction: row-reverse;
+}
+section#chat .veiw .others .icon {
+  background-image: url("./Content/images/img/Asset 2.png");
+}
+section#chat .veiw .others span {
+  background-color: var(--answer);
+  border-radius: 25px 25px 25px 0;
+}
+section#chat .veiw .others span::before {
+  right: unset;
+  left: 0;
+}
+section#chat .veiw .others span a {
+  left: 5em;
+  right: 1em;
+  text-align: right;
+}
+section#chat .veiw .others span i {
+  right: unset;
+  left: 100%;
+  transform: scaleX(-1);
+}
+section#chat .veiw .date {
+  margin: 1em auto;
+  display: block;
+  text-align: center;
+  background: #d6d6d6;
+  width: max-content;
+  padding: 0.2em 1em;
+  border-radius: 10px;
+}
+section#chat .veiw .sample {
+  display: none;
+}
+section#chat .wrap {
+  position: relative;
+}
+section#chat .wrap .getDown {
+  background-color: var(--question);
+  color: white;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: calc(100% + 1em);
+  right: 0.6em;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.2s 0.2s;
+  transform: scale(0.3);
+  opacity: 0;
+}
+section#chat .wrap .getDown.active {
+  transform: scale(1);
+  opacity: 100;
+}
+section#chat .wrap .reply {
+  font-size: 0.8em;
+  padding: 0.8em;
+  padding-bottom: 0;
+  background-color: var(--question);
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: 0.2s;
+  max-height: 7.5em;
+  padding: 0;
+}
+section#chat .wrap .reply > div {
+  background-color: var(--answer);
+  flex: 0 0 90.5%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  margin: 0.8em 0.5em;
+  margin-bottom: 0;
+  padding: 0.6em 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section#chat .wrap .reply > div .icon::before {
+  content: attr(data-user) ":";
+  color: #007cff;
+  font-weight: bold;
+}
+section#chat .wrap .reply > div span i {
+  display: none;
+}
+section#chat .wrap .reply > div a {
+  display: none;
+}
+section#chat .wrap .reply > i {
+  color: white;
+  cursor: pointer;
+  flex: 0 0 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9em;
+}
+section#chat .wrap .reply.closed {
+  max-height: 0;
+}
+section#chat form {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 1em;
+  padding: 0.8em 0.5em;
+  background: var(--question);
+}
+section#chat form .input {
+  background: #f5f5f5;
+  flex: 0 0 90%;
+  font-family: inherit;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: #42515a;
+  padding: 0.5em 1.1em;
+  font-size: 0.9em;
+  cursor: text;
+}
+section#chat form .input input {
+  display: none;
+}
+section#chat form .input:focus {
+  outline: none;
+  border-color: #46b4ca;
+}
+section#chat form .input:empty::before {
+  content: "متن خود را بنویسید";
+  color: #a0a0a0;
+}
+section#chat form button {
+  flex: 0 0 7%;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5em 0;
+  transition: 0.2s;
+}
+section#chat form button:hover {
+  background-color: #e5e5e5;
 }
 
 * {
