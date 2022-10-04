@@ -1265,7 +1265,7 @@ section#chat form button:disabled {
     font-size: 5.5vw;
   }
   section#chat .veiw {
-    --offset: 78%;
+    --offset: 73%;
   }
   section#chat .veiw > :not(.date, .getUp) {
     font-size: 0.9em;
