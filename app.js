@@ -281,7 +281,7 @@ $(function () {
     mergeMsg();
     closeReply();
     chat.input.innerText = '';
-
+    chat.form.button.disabled = true;
   }
 
   let br = false;

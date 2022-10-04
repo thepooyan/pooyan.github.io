@@ -1283,6 +1283,7 @@ section#chat form button:disabled {
   }
   section#chat form button {
     flex: 0 0 16%;
+    font-weight: 100;
   }
   section#chat form label.fas {
     margin-bottom: 0.55em;
