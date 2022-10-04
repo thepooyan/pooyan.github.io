@@ -194,11 +194,22 @@ $(function () {
     }
   })()
 
+  //!---- CHAT
+  let chat = dc.query('#chat');
+  chat.veiw = chat.query('.veiw');
+  chat.veiw.msgs = chat.queries('.veiw > div')
+  chat.veiw.msgSample = chat.veiw.query('.sample');
+  chat.form = chat.query('form');
+  chat.form.button = chat.form.query('button');
+  chat.header = chat.query('#chat header')
+  chat.getDown = chat.query('#chat .wrap .getDown');
+  chat.reply = chat.query('.reply');
+  chat.input = chat.query('#chat form .input');
+
   //scroll chat to the end
   function scrollChat() {
-    let chat = dc.query('#chat .veiw');
     $('#chat .veiw').animate({
-      scrollTop: chat.scrollHeight + 500
+      scrollTop: chat.veiw.scrollHeight + 500
     }, 900);
   }
 
@@ -217,8 +228,7 @@ $(function () {
   let isReply = false;
   //create massage in chat
   function createMsg(text) {
-    let chat = dc.query('#chat .veiw');
-    let msg = chat.query('.sample');
+    let msg = chat.veiw.msgSample;
     let newMsg = msg.cloneNode(true);
 
     //remove sample class
@@ -235,7 +245,7 @@ $(function () {
     newMsg.querySelector('span').dataset.time = time;
 
     //new ID
-    let lastId = dc.query('#chat .veiw > div:last-child').id;
+    let lastId = chat.veiw.query('.veiw > div:last-child').id;
     newMsg.id = ++lastId;
 
     //add reply
@@ -243,7 +253,7 @@ $(function () {
       let a = document.createElement('a')
       a.href = `#${isReply.id}`;
       a.innerHTML = isReply.user;
-      a.onclick = (e) => {scrollReplyEvnt(a, e)}
+      a.onclick = (e) => { scrollReplyEvnt(a, e) }
       newMsg.querySelector('span').appendChild(a);
     }
 
@@ -251,44 +261,53 @@ $(function () {
   }
 
   //chat submit
-  dc.query('#chat form').onsubmit = (e) => {
-    chatSubmit(e);
-  };
+  chat.form.onsubmit = (e) => { chatSubmit(e); };
 
   function chatSubmit(e) {
     if (e.preventDefault) e.preventDefault();
-    let input = dc.query('#chat form .input');
 
-    let inputTxt = input.innerText;
+    let inputTxt = chat.input.innerText;
     if (!inputTxt) return;
     inputTxt = inputTxt.replace(/\n/g, '<br/>');  //replace /n with br tag
     inputTxt = inputTxt.replace(/(<br\/>)+$/g, ''); //remove one or more occurence of br tag at the end of text
 
-    dc.query('#chat .veiw').appendChild(createMsg(inputTxt));
+    chat.veiw.appendChild(createMsg(inputTxt));
+
+    //refresh massages object
+    chat.veiw.msgs = chat.veiw.queries('.veiw > div');
+
     setReplyEvnt();
     scrollChat();
     mergeMsg();
     closeReply();
-    input.innerText = '';
+    chat.input.innerText = '';
+
   }
 
   let br = false;
+
   //chat input details
-  dc.query('#chat .input').onkeydown = (e) => {
+  chat.input.onkeydown = (e) => {
     if (e.keyCode == 13 && !e.shiftKey) {
       chatSubmit(e);
     }
   }
 
-  dc.query('#chat .input').onkeyup = (e) => {
-    if (e.target.innerHTML === "<br>")
+  chat.input.onkeyup = (e) => {
+    if (e.target.innerHTML === "<br>") {
       e.target.innerHTML = '';
+    }
+    if (e.target.innerHTML === '') {
+      chat.form.button.disabled = true;
+    } else {
+      chat.form.button.disabled = false;
+    }
   }
 
   //merge massages
   function mergeMsg() {
     let prevUser, prevType;
-    dc.queries('#chat .veiw > div').forEach(item => {
+    chat.veiw.msgs.forEach(item => {
       let user = item.querySelector('div').dataset.user;
       let type = item.classList.contains('others') ? true : false;
       if (user === prevUser && type === prevType)
@@ -299,48 +318,44 @@ $(function () {
   }
 
   //reply
-  let replySec = dc.query('#chat .reply');
   function closeReply() {
-    replySec.classList.add('closed')
+    chat.reply.classList.add('closed')
     isReply = false;
   }
   function openReply(trg) {
-    replySec.classList.remove('closed');
+    chat.reply.classList.remove('closed');
     let clone = trg.cloneNode(true);
-    replySec.query('div').replaceWith(clone)
-    dc.query('#chat form > div').focus();
-    let id = dc.query('#chat .reply > div').id;
-    let user = replySec.query('.icon').dataset.user;
+    chat.reply.query('div').replaceWith(clone)
+    chat.form.query('form > div').focus();
+    let id = chat.reply.query('.reply > div').id;
+    let user = chat.reply.query('.icon').dataset.user;
     isReply = { user, id };
   }
   function setReplyEvnt() {
-    dc.queries('#chat .veiw > div').forEach(item => {
+    chat.veiw.msgs.forEach(item => {
       item.querySelector('i').onclick = () => { openReply(item) };
     })
   }
   setReplyEvnt();
-  dc.query('#chat .reply > i ').onclick = closeReply;
+  chat.reply.query('.reply > i ').onclick = closeReply;
 
   //getDown
-  let getDown = dc.query('#chat .wrap .getDown');
-  getDown.onclick = scrollChat;
-
+  chat.getDown.onclick = scrollChat;
 
   //scroll events
-  let chatVeiw = dc.query('#chat .veiw');
-  chatVeiw.onscroll = () => {
-    let scrollHeight = chatVeiw.scrollHeight - chatVeiw.offsetHeight;
-    // console.log(`${chatVeiw.scrollTop} of ${scrollHeight}`)
-    if (chatVeiw.scrollTop >= scrollHeight) {
-      getDown.classList.remove('active')
+  chat.veiw.onscroll = () => {
+    let scrollHeight = chat.veiw.scrollHeight - chat.veiw.offsetHeight;
+    // console.log(`${chat.veiw.scrollTop} of ${scrollHeight}`)
+    if (chat.veiw.scrollTop >= scrollHeight) {
+      chat.getDown.classList.remove('active')
     } else {
-      getDown.classList.add('active')
+      chat.getDown.classList.add('active')
     }
   }
 
   //scroll to reply
-  dc.queries('#chat .veiw > div span a').forEach(item => {
-    item.onclick = (e) => {scrollReplyEvnt(item, e)};
+  chat.veiw.queries('.veiw > div span a').forEach(item => {
+    item.onclick = (e) => { scrollReplyEvnt(item, e) };
   })
 
   function scrollReplyEvnt(item, e) {
@@ -349,13 +364,11 @@ $(function () {
       var hash = item.getAttribute('href');
       let target = dc.id(hash.substring(1));
 
-      let header = dc.query('#chat header')
-
       $('#chat .veiw').animate(
-        { scrollTop: target.offsetTop - header.offsetHeight - (chatVeiw.offsetHeight / 2), },
+        { scrollTop: target.offsetTop - chat.header.offsetHeight - (chat.veiw.offsetHeight / 2), },
         900,
         () => { heighlightTrg(target) }
-        );
+      );
 
       //heighlight reply
       function heighlightTrg(trg) {
