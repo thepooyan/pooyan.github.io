@@ -467,9 +467,10 @@
   position: absolute;
   bottom: -1px;
   right: -1px;
-  --size: 9em;
   border-top: var(--size) solid #eee;
   border-right: var(--size) solid #4ab4e4;
+  transition: 1s;
+  --size: 40em;
 }
 #studentPanelPage > main #myPractice .pad aside {
   height: 100%;
@@ -568,6 +569,9 @@
 #studentPanelPage > main #myPractice .pad main .item .details .downloads {
   display: flex;
   justify-content: space-between;
+}
+#studentPanelPage > main #myPractice .pad.active::after {
+  --size: 9em;
 }
 #studentPanelPage > main #myPractice::before, #studentPanelPage > main #myPractice::after {
   content: "";
@@ -892,7 +896,7 @@
     flex-direction: column;
   }
   #studentPanelPage > main #myPractice .pad::after {
-    --size: 4em;
+    --size: 20em;
   }
   #studentPanelPage > main #myPractice .pad aside {
     width: 100%;
@@ -908,6 +912,9 @@
   }
   #studentPanelPage > main #myPractice .pad aside .sessions span {
     flex: 0 0 30%;
+  }
+  #studentPanelPage > main #myPractice .pad.active::after {
+    --size: 4em;
   }
 }
 
@@ -990,8 +997,10 @@ section#chat .veiw > *:not(.date, .getUp) {
   align-items: center;
   flex-direction: row;
   flex-direction: row;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   padding-bottom: 2em;
+  margin: 0 0.5em;
+  border-radius: 15px;
 }
 section#chat .veiw > *:not(.date, .getUp).merge .icon {
   display: none;
