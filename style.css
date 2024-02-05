@@ -1,0 +1,1400 @@
+@charset "UTF-8";
+/*---------------MIXINS & FUNCTIONS--------------------------*/
+/*---------------MIXINS & FUNCTIONS--------------------------*/
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 100;
+    src: url('Font/IRANSansWeb/Woff2/IRANSansXFaNum-Thin.woff2') format('woff2'), url('Font/IRANSansWeb/Woff/IRANSansXFaNum-Thin.woff') format('woff'), url('Font/IRANSansWeb/ttf/IRANSansXFaNum-Thin.ttf') format('ttf');
+}*/
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 200;
+    src: url('Font/IRANSansWeb/Woff2/IRANSansXFaNum-UltraLight.woff2') format('woff2'), url('Font/IRANSansWeb/Woff/IRANSansXFaNum-UltraLight.woff') format('woff'),url('Font/IRANSansWeb/ttf/IRANSansXFaNum-UltraLight.ttf') format('ttf');
+}*/
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 300;
+  src: url("Font/IRANSansWeb/Woff2/IRANSansXFaNum-Light.woff2") format("woff2"), url("Font/IRANSansWeb/Woff/IRANSansXFaNum-Light.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Light.ttf") format("ttf");
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 500;
+  src: url("Font/IRANSansWeb/Woff2/IRANSansXFaNum-Medium.woff2") format("woff2"), url("Font/IRANSansWeb/Woff/IRANSansXFaNum-Medium.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Medium.ttf") format("ttf");
+}
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 600;
+    src: url('Font/IRANSansWeb/Woff2/IRANSansXFaNum-DemiBold.woff2') format('woff2'), url('Font/IRANSansWeb/Woff/IRANSansXFaNum-DemiBold.woff') format('woff'), url('Font/IRANSansWeb/ttf/IRANSansXFaNum-DemiBold.ttf') format('ttf');
+}*/
+/*@font-face {
+    font-family: IRANSansX;
+    font-style: normal;
+    font-weight: 800;
+    src: url('Font/IRANSansWeb/Woff2/IRANSansXFaNum-ExtraBold.woff2') format('woff2'), url('Font/IRANSansWeb/Woff/IRANSansXFaNum-ExtraBold.woff') format('woff'), url('Font/IRANSansWeb/ttf/IRANSansXFaNum-ExtraBold.ttf') format('ttf');
+}*/
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 900;
+  src: url("Font/IRANSansWeb/Woff2/IRANSansXFaNum-Black.woff2") format("woff2"), url("Font/IRANSansWeb/Woff/IRANSansXFaNum-Black.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Black.ttf") format("ttf");
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: bold;
+  src: url("Font/IRANSansWeb/Woff2/IRANSansXFaNum-Bold.woff2") format("woff2"), url("Font/IRANSansWeb/Woff/IRANSansXFaNum-Bold.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: normal;
+  src: url("Font/IRANSansWeb/Woff2/IRANSansXFaNum-Regular.woff2") format("woff2"), url("Font/IRANSansWeb/Woff/IRANSansXFaNum-Regular.woff") format("woff"), url("Font/IRANSansWeb/ttf/IRANSansXFaNum-Regular.ttf") format("ttf");
+}
+#studentPanelPage a {
+  color: #08579e;
+  font-weight: bold;
+  outline: none;
+}
+#studentPanelPage > header {
+  background-color: #fdac14;
+  position: relative;
+  padding-top: 3em;
+}
+#studentPanelPage > header .right {
+  width: 37%;
+  height: 100%;
+  margin-right: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.3vw;
+}
+#studentPanelPage > header .right img.logo {
+  margin: auto;
+  display: block;
+  width: 57%;
+}
+#studentPanelPage > header .right p {
+  color: white;
+  font-size: 1.5em;
+  text-align: justify;
+  line-height: 1.5em;
+}
+#studentPanelPage > header > .header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+#studentPanelPage > header > .side {
+  position: absolute;
+  right: -5%;
+  bottom: 0;
+  height: 100%;
+}
+#studentPanelPage > header .top {
+  position: absolute;
+  top: -27%;
+  left: 0;
+  width: 54%;
+}
+#studentPanelPage > main {
+  margin: 0 var(--verticMargin);
+  --verticMargin: 7vw;
+  padding-top: 3em;
+}
+#studentPanelPage > main .fullScreen {
+  margin: 0 calc(-1 * var(--verticMargin));
+}
+#studentPanelPage > main > * {
+  margin-bottom: 3em !important;
+}
+#studentPanelPage > main nav {
+  margin-bottom: 7em;
+  border: 2px solid rgba(152, 133, 116, 0.4235294118);
+  background: linear-gradient(160deg, rgb(255, 255, 255) 19%, rgb(246, 246, 246) 57%, rgb(190, 194, 195) 100%);
+  border-radius: var(--border-radius);
+  padding: 1em 3em;
+}
+#studentPanelPage > main nav h4 {
+  color: #a81b43;
+}
+#studentPanelPage > main nav h4::before {
+  content: "شما در ناحیه کاربری ";
+  color: black;
+}
+#studentPanelPage > main nav h4::after {
+  content: " قرار دارید.";
+  color: black;
+}
+#studentPanelPage > main nav h2 {
+  width: 6em;
+  text-align: center;
+}
+#studentPanelPage > main nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 4em;
+  padding: 0;
+  font-size: 1.3vw;
+}
+#studentPanelPage > main nav ul li {
+  --radius: 9em;
+  border: 0.6em solid var(--color);
+  border-radius: 50%;
+  height: var(--radius);
+  width: var(--radius);
+  list-style: none;
+  position: relative;
+  font-weight: 800;
+  color: var(--color);
+  background: linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(247, 247, 247) 57%, rgb(192, 196, 197) 90%);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  --polygan-offset: 40%;
+}
+#studentPanelPage > main nav ul li::before, #studentPanelPage > main nav ul li::after {
+  content: "";
+  width: 3.2em;
+  height: 2.9em;
+  background-color: var(--color);
+  position: absolute;
+}
+#studentPanelPage > main nav ul li::before {
+  left: 100%;
+  clip-path: polygon(0 0, 100% 0, var(--polygan-offset) 100%, 0 100%);
+}
+#studentPanelPage > main nav ul li::after {
+  right: 100%;
+  clip-path: polygon(calc(100% - var(--polygan-offset)) 0, 100% 0, 100% 100%, 0 100%);
+}
+#studentPanelPage > main nav ul li:last-child::after {
+  display: none;
+}
+#studentPanelPage > main nav ul li:first-child::before {
+  display: none;
+}
+#studentPanelPage > main nav ul li div {
+  background: url("./Content/images/img/Asset 4.png") no-repeat;
+  background-size: contain;
+  border: 5px solid transparent;
+}
+#studentPanelPage > main nav ul li a,
+#studentPanelPage > main nav ul li span,
+#studentPanelPage > main nav ul li div {
+  font-weight: inherit;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  --var-shadow: rgba(10, 10, 10, 0.008);
+  box-shadow: 0px 0px 0 var(--var-shadow), 0.4px 1px 0 var(--var-shadow), 0.8px 2px 0 var(--var-shadow), 1.2px 3px 0 var(--var-shadow), 1.6px 4px 0 var(--var-shadow), 2px 5px 0 var(--var-shadow), 2.4px 6px 0 var(--var-shadow), 2.8px 7px 0 var(--var-shadow), 3.2px 8px 0 var(--var-shadow), 3.6px 9px 0 var(--var-shadow), 4px 10px 0 var(--var-shadow), 4.4px 11px 0 var(--var-shadow), 4.8px 12px 0 var(--var-shadow), 5.2px 13px 0 var(--var-shadow), 5.6px 14px 0 var(--var-shadow), 6px 15px 0 var(--var-shadow), 6.4px 16px 0 var(--var-shadow), 6.8px 17px 0 var(--var-shadow), 7.2px 18px 0 var(--var-shadow), 7.6px 19px 0 var(--var-shadow), 8px 20px 0 var(--var-shadow), 8.4px 21px 0 var(--var-shadow), 8.8px 22px 0 var(--var-shadow), 9.2px 23px 0 var(--var-shadow), 9.6px 24px 0 var(--var-shadow), 10px 25px 0 var(--var-shadow), 10.4px 26px 0 var(--var-shadow), 10.8px 27px 0 var(--var-shadow), 11.2px 28px 0 var(--var-shadow), 11.6px 29px 0 var(--var-shadow), 12px 30px 0 var(--var-shadow), 12.4px 31px 0 var(--var-shadow), 12.8px 32px 0 var(--var-shadow), 13.2px 33px 0 var(--var-shadow), 13.6px 34px 0 var(--var-shadow), 14px 35px 0 var(--var-shadow), 10.4px 26px 5px var(--var-shadow), 10.8px 27px 10px var(--var-shadow), 11.6px 28px 15px var(--var-shadow);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+#studentPanelPage > main nav ul li:nth-child(1) {
+  --color: #ff008a;
+}
+#studentPanelPage > main nav ul li:nth-child(2) {
+  --color: #ba6adb;
+}
+#studentPanelPage > main nav ul li:nth-child(3) {
+  --color: #355ba6;
+}
+#studentPanelPage > main nav ul li:nth-child(4) {
+  --color: #61a4f5;
+}
+#studentPanelPage > main nav ul li:nth-child(5) {
+  --color: #66dada;
+}
+#studentPanelPage > main nav button {
+  width: 7em;
+  border: none;
+  background: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 0.6em;
+}
+#studentPanelPage > main nav > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#studentPanelPage > main nav > div .twoGuys {
+  width: 15em;
+}
+#studentPanelPage > main nav > div a.chat {
+  white-space: nowrap;
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  color: #cc1130;
+  font-weight: 900;
+  --wid: 9em;
+  width: var(--wid);
+  height: var(--wid);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 11px 1px rgba(9, 44, 69, 0.4392156863);
+  position: relative;
+}
+#studentPanelPage > main nav > div a.chat::before {
+  content: "";
+  background: url("./Content/images/Student Panel/Asset10.png");
+  width: 16em;
+  height: 11em;
+  position: absolute;
+  background-size: cover;
+}
+#studentPanelPage > main .summary {
+  --border-thick: 5px;
+  --title-offset: 7px;
+  --h3-width: 264px;
+  --h3-margin: 25px;
+  --mainColor: green;
+  width: 100%;
+  background: linear-gradient(to bottom, #f0f1f5, white);
+  border: var(--border-thick) solid white;
+  box-shadow: 0 0 8px #b3b3b3;
+  border-radius: calc(var(--border-radius) / 4);
+  position: relative;
+}
+#studentPanelPage > main .summary#tasks .items .item:nth-child(2n) {
+  background-color: #ededed;
+}
+#studentPanelPage > main .summary#tasks .items .item.des {
+  background-color: transparent;
+  font-weight: 100;
+}
+#studentPanelPage > main .summary::before {
+  content: "";
+  --overflow: 20px;
+  width: calc(var(--h3-width) + var(--overflow));
+  position: absolute;
+  top: calc(-1 * (var(--border-thick) + var(--title-offset)));
+  height: var(--title-offset);
+  right: calc(var(--h3-margin) - var(--overflow) / 2);
+  border-radius: 9px 9px 0 0;
+}
+#studentPanelPage > main .summary h3 {
+  margin: 0;
+  margin-right: var(--h3-margin);
+  width: var(--h3-width);
+  text-align: center;
+  color: white;
+  padding: 1em 0;
+  position: relative;
+  bottom: calc(var(--border-thick) + var(--title-offset));
+  border-radius: 0 0 40px 40px;
+}
+#studentPanelPage > main .summary h3 .crumb {
+  display: none;
+  --size: 1.2em;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: var(--size);
+  height: var(--size);
+  overflow: hidden;
+}
+#studentPanelPage > main .summary h3 .crumb .in {
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+#studentPanelPage > main .summary h3 .crumb .in::before {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  background: linear-gradient(90deg, purple, green, hotpink);
+  z-index: -1;
+  filter: blur(20px);
+}
+#studentPanelPage > main .summary .items {
+  padding: 2em 1em;
+}
+#studentPanelPage > main .summary .items .item {
+  font-size: 0.9em;
+  padding: 0.3em 1em;
+  background-color: #ededed;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+#studentPanelPage > main .summary .items .item:nth-child(2n) {
+  background-color: transparent;
+}
+#studentPanelPage > main .summary .items .item i {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #08579e;
+  position: relative;
+}
+#studentPanelPage > main .summary .items .item i::after {
+  content: "کپی شد!";
+  position: absolute;
+  right: -76px;
+  font-family: "IRANSansX";
+  background: grey;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 20px 20px 20px 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.1s;
+}
+#studentPanelPage > main .summary .items .item i.copied::after {
+  bottom: 50%;
+  opacity: 100;
+}
+#studentPanelPage > main .summary .items .item span {
+  text-align: center;
+}
+#studentPanelPage > main .summary button {
+  font-weight: bold;
+  width: var(--h3-width);
+  margin-right: var(--h3-margin);
+  display: block;
+  margin-bottom: 1em;
+  color: white;
+  border: none;
+  border-radius: calc(var(--border-radius) / 6);
+  padding: 0.6em 0;
+}
+#studentPanelPage > main .summary:nth-of-type(1) {
+  --mainColor: #a81b43;
+}
+#studentPanelPage > main .summary:nth-of-type(1)::before {
+  background-color: #a81b43;
+}
+#studentPanelPage > main .summary:nth-of-type(1) h3,
+#studentPanelPage > main .summary:nth-of-type(1) button {
+  background: linear-gradient(0deg, #d32f4f 0%, #a81b43 85%, #ff435a 100%);
+}
+#studentPanelPage > main .summary:nth-of-type(2) {
+  --mainColor: #08579e;
+}
+#studentPanelPage > main .summary:nth-of-type(2)::before {
+  background-color: #08579e;
+}
+#studentPanelPage > main .summary:nth-of-type(2) h3,
+#studentPanelPage > main .summary:nth-of-type(2) button {
+  background: linear-gradient(0deg, #0062a5 0%, #08579e 85%, #0096d1 100%);
+}
+#studentPanelPage > main .summary:nth-of-type(3) {
+  --mainColor: #0a7055;
+}
+#studentPanelPage > main .summary:nth-of-type(3)::before {
+  background-color: #0a7055;
+}
+#studentPanelPage > main .summary:nth-of-type(3) h3,
+#studentPanelPage > main .summary:nth-of-type(3) button {
+  background: linear-gradient(0deg, #0b9973 0%, #0a7055 85%, #0cc191 100%);
+}
+#studentPanelPage > main .summary:nth-of-type(4) {
+  --mainColor: #f15a24;
+}
+#studentPanelPage > main .summary:nth-of-type(4)::before {
+  background-color: #f15a24;
+}
+#studentPanelPage > main .summary:nth-of-type(4) h3,
+#studentPanelPage > main .summary:nth-of-type(4) button {
+  background: linear-gradient(0deg, #f7931e 0%, #f15a24 85%, #f7931e 100%);
+}
+#studentPanelPage > main #myPractice {
+  --blue: #4fc2f8;
+  position: relative;
+  padding-top: 4.3em;
+  margin-bottom: 15em !important;
+}
+#studentPanelPage > main #myPractice h2 {
+  color: var(--blue);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 2.5em;
+  font-size: 2em;
+}
+#studentPanelPage > main #myPractice .pad {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+  position: relative;
+  height: 45em;
+  border: 1.5em solid var(--blue);
+  border-bottom-width: 4.5em;
+  border-radius: 18px;
+  padding: 2em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+}
+#studentPanelPage > main #myPractice .pad::before {
+  content: "";
+  background: url("Content/images/Student Panel/Asset 6.png");
+  position: absolute;
+  bottom: calc(100% - 0.7em);
+  width: 15em;
+  height: 7em;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#studentPanelPage > main #myPractice .pad::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  border-top: var(--size) solid #eee;
+  border-right: var(--size) solid #4ab4e4;
+  transition: 1s;
+  --size: 40em;
+}
+#studentPanelPage > main #myPractice .pad aside {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex: 2;
+}
+#studentPanelPage > main #myPractice .pad aside .sessions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 91%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+#studentPanelPage > main #myPractice .pad aside .sessions::-webkit-scrollbar {
+  display: none;
+}
+#studentPanelPage > main #myPractice .pad aside .sessions span {
+  border: 2px solid var(--blue);
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.4em 0;
+  font-weight: bold;
+  margin-bottom: 0.7em;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#studentPanelPage > main #myPractice .pad aside .sessions span.active {
+  background-color: var(--blue);
+  color: white;
+}
+#studentPanelPage > main #myPractice .pad aside > a {
+  width: 100%;
+}
+#studentPanelPage > main #myPractice .pad aside > a button {
+  background-color: var(--blue);
+  border: none;
+  padding: 0.4em 0;
+  font-weight: 500;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1.3em;
+}
+#studentPanelPage > main #myPractice .pad main {
+  flex: 8;
+  max-height: 78%;
+  overflow-y: scroll;
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+#studentPanelPage > main #myPractice .pad main::-webkit-scrollbar {
+  display: none;
+}
+#studentPanelPage > main #myPractice .pad main.active {
+  display: block;
+}
+#studentPanelPage > main #myPractice .pad main .item {
+  color: grey;
+  padding: 1em 2em;
+  border: 2px solid #d6d6d6;
+  border-radius: 15px;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+}
+#studentPanelPage > main #myPractice .pad main .item.active {
+  color: black;
+  cursor: initial;
+}
+#studentPanelPage > main #myPractice .pad main .item.active .details {
+  max-height: 5em;
+}
+#studentPanelPage > main #myPractice .pad main .item .top {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+#studentPanelPage > main #myPractice .pad main .item .details {
+  transition: 0.3s;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 1.5em;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  color: grey;
+  font-weight: 100;
+}
+#studentPanelPage > main #myPractice .pad main .item .details .downloads {
+  display: flex;
+  justify-content: space-between;
+}
+#studentPanelPage > main #myPractice .pad.active::after {
+  --size: 9em;
+}
+#studentPanelPage > main #myPractice::before, #studentPanelPage > main #myPractice::after {
+  content: "";
+  background: url("Content/images/Student Panel/Asset 7.png");
+  background-size: cover;
+  --width: 23em;
+  width: var(--width);
+  height: var(--width);
+  position: absolute;
+  z-index: 1;
+  bottom: -10em;
+  right: 0;
+}
+#studentPanelPage > main #myPractice::after {
+  background-image: url("Content/images/Student Panel/Asset 8.png");
+  left: 0;
+  right: unset;
+  z-index: -2;
+  background-position: right;
+}
+#studentPanelPage > main #practiceModal {
+  --green: #00a99e;
+  color: #5b5b5b;
+  padding: 0 9%;
+}
+#studentPanelPage > main #practiceModal h3 {
+  color: var(--green);
+  margin: 0 1em;
+  margin-bottom: 1em;
+}
+#studentPanelPage > main #practiceModal .part {
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  margin-bottom: 2em;
+  position: relative;
+  padding: 1em;
+}
+#studentPanelPage > main #practiceModal .part i.fa-plus-circle {
+  position: absolute;
+  left: 0.7em;
+  top: 0.4em;
+  color: var(--green);
+  font-size: 1.8em;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#studentPanelPage > main #practiceModal .part i.fa-plus-circle:hover {
+  color: inherit;
+}
+#studentPanelPage > main #practiceModal .part .input {
+  position: relative;
+  max-height: 2em;
+  transition: 0.2s;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+#studentPanelPage > main #practiceModal .part .input label {
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  width: 70%;
+  display: block;
+  margin: auto;
+  padding: 0.1em 0.4em;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
+}
+#studentPanelPage > main #practiceModal .part .input label input {
+  display: none;
+}
+#studentPanelPage > main #practiceModal .part .input label span {
+  white-space: nowrap;
+}
+#studentPanelPage > main #practiceModal .part .input label span:empty::after {
+  content: "انتخاب فایل";
+  float: right;
+}
+#studentPanelPage > main #practiceModal .part .input i.fa-times {
+  position: absolute;
+  left: 2%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  cursor: pointer;
+  padding: 0 0.4em;
+}
+#studentPanelPage > main #practiceModal .part .input.hidden {
+  max-height: 0;
+  margin: 0;
+}
+#studentPanelPage > main #practiceModal .textPart textarea {
+  display: block;
+  border: 2px solid var(--green);
+  font-family: iransansx;
+  padding: 0.7em 2em;
+  font-size: 0.9em;
+  resize: none;
+  transition: 0.1s;
+  margin: 0;
+  margin-bottom: 2em;
+  width: 100%;
+  border-radius: 25px;
+  background-color: inherit;
+}
+#studentPanelPage > main #practiceModal .textPart textarea:focus {
+  outline: none;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.231372549);
+}
+#studentPanelPage > main #practiceModal > button {
+  border: none;
+  background-color: var(--green);
+  color: white;
+  border-radius: 17px;
+  font-size: 1.2em;
+  font-weight: 800;
+  padding: 0.1em 1.8em;
+}
+@media (max-width: 992px) {
+  #studentPanelPage {
+    font-size: 0.8em;
+  }
+  #studentPanelPage > header {
+    padding-top: 0;
+  }
+  #studentPanelPage > header > .header {
+    width: 78%;
+  }
+  #studentPanelPage > header .right {
+    width: 49%;
+    font-size: 1.5vw;
+  }
+  #studentPanelPage > main {
+    --verticMargin: 3vw;
+  }
+  #studentPanelPage > main nav > ul {
+    font-size: 1.5vw;
+  }
+  #studentPanelPage > main #myPractice .pad {
+    width: 89%;
+  }
+  #studentPanelPage > main #myPractice::before, #studentPanelPage > main #myPractice::after {
+    font-size: 0.9em;
+  }
+}
+@media (max-width: 698px) {
+  #studentPanelPage > header {
+    display: none;
+  }
+  #studentPanelPage > main nav {
+    border: none;
+    background: transparent;
+  }
+  #studentPanelPage > main nav h4 {
+    text-align: center;
+    position: absolute;
+    top: 1em;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 50%;
+    color: #0071bc;
+    font-weight: 200;
+  }
+  #studentPanelPage > main nav h4::before {
+    content: "ناحیه کاربری دوره";
+    display: block;
+    font-weight: 200;
+  }
+  #studentPanelPage > main nav h4::after {
+    content: "";
+  }
+  #studentPanelPage > main nav h2 {
+    position: absolute;
+    top: 0.8em;
+    right: 1%;
+    width: 25%;
+    margin: 0;
+    font-weight: 400;
+  }
+  #studentPanelPage > main nav ul {
+    font-size: 0.8em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    justify-content: space-between;
+    gap: 0;
+    row-gap: 5vw;
+  }
+  #studentPanelPage > main nav ul li {
+    border-width: 0.2em;
+    font-weight: 500;
+    box-shadow: none;
+  }
+  #studentPanelPage > main nav ul li a {
+    font-size: 1.3em;
+    text-align: center;
+  }
+  #studentPanelPage > main nav ul li::before, #studentPanelPage > main nav ul li::after {
+    display: none;
+  }
+  #studentPanelPage > main nav ul li a,
+  #studentPanelPage > main nav ul li span,
+  #studentPanelPage > main nav ul li div {
+    box-shadow: none;
+    border: none;
+  }
+  #studentPanelPage > main nav ul li:nth-child(1) {
+    order: 2;
+  }
+  #studentPanelPage > main nav ul li:nth-child(2) {
+    order: 1;
+  }
+  #studentPanelPage > main nav ul li:nth-child(3) {
+    order: 3;
+  }
+  #studentPanelPage > main nav ul li:nth-child(4) {
+    order: 4;
+  }
+  #studentPanelPage > main nav ul li:nth-child(5) {
+    order: 5;
+    grid-column: 3/4;
+  }
+  #studentPanelPage > main nav button {
+    display: none;
+  }
+  #studentPanelPage > main nav div img {
+    display: none;
+  }
+  #studentPanelPage > main nav div a.chat {
+    box-shadow: none;
+    background-color: transparent;
+    color: #ff9329;
+    border: 0.15em solid #f15a24;
+    width: auto;
+    height: auto;
+    padding: 0.8em 1.6em;
+    border-radius: 30px;
+    font-weight: 500;
+  }
+  #studentPanelPage > main nav div a.chat br {
+    display: none;
+  }
+  #studentPanelPage > main nav div a.chat::before {
+    display: none;
+  }
+  #studentPanelPage > main nav div a.chat::after {
+    content: "";
+    background: url("Content/images/Student Panel/question.png");
+    background-size: cover;
+    position: absolute;
+    --wid: 7em;
+    width: var(--wid);
+    height: var(--wid);
+    bottom: calc(100% + 0.9em);
+  }
+  #studentPanelPage > main .summary {
+    background: none;
+    border: none;
+    padding: 1px;
+    box-shadow: none;
+    border: 0.1em solid var(--mainColor);
+  }
+  #studentPanelPage > main .summary button {
+    margin: 1em auto;
+    width: 12em;
+  }
+  #studentPanelPage > main .summary .code {
+    display: none;
+  }
+  #studentPanelPage > main .summary::before {
+    display: none;
+  }
+  #studentPanelPage > main .summary h3 {
+    background: none !important;
+    color: var(--mainColor);
+    margin: 0.5em auto;
+    font-weight: 200;
+  }
+  #studentPanelPage > main #myPractice .pad {
+    margin: 0;
+    width: 100%;
+    border-width: 0.8em;
+  }
+  #studentPanelPage > main #myPractice .pad main {
+    width: 100%;
+  }
+  #studentPanelPage > main #myPractice::before, #studentPanelPage > main #myPractice::after {
+    font-size: 0.7em;
+  }
+  #studentPanelPage > main #practiceModal {
+    padding: 0;
+  }
+}
+@media (max-width: 480px) {
+  #studentPanelPage > main {
+    padding-top: 5em;
+  }
+  #studentPanelPage > main nav {
+    padding: 0 1em;
+  }
+  #studentPanelPage > main nav ul {
+    font-size: 2.8vw;
+  }
+  #studentPanelPage > main nav ul li {
+    border-width: 0.3em;
+  }
+  #studentPanelPage > main nav div a.chat {
+    font-size: 3.5vw;
+  }
+  #studentPanelPage > main nav h2 {
+    font-size: 1.2em;
+    top: 1.9em;
+    font-weight: 100;
+  }
+  #studentPanelPage > main #myPractice::before {
+    display: none;
+  }
+  #studentPanelPage > main #myPractice .pad {
+    flex-direction: column;
+  }
+  #studentPanelPage > main #myPractice .pad::after {
+    --size: 20em;
+  }
+  #studentPanelPage > main #myPractice .pad aside {
+    width: 100%;
+  }
+  #studentPanelPage > main #myPractice .pad aside a {
+    width: 38%;
+  }
+  #studentPanelPage > main #myPractice .pad aside .sessions {
+    flex-direction: row;
+    gap: 0.7em;
+    flex-wrap: wrap;
+    max-height: 11.7em;
+  }
+  #studentPanelPage > main #myPractice .pad aside .sessions span {
+    flex: 0 0 30%;
+  }
+  #studentPanelPage > main #myPractice .pad.active::after {
+    --size: 4em;
+  }
+}
+
+section#chat {
+  --question: #7fcedd;
+  --answer: #C8E0FC;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #6497bc;
+  border: 2px solid var(--question);
+  margin: auto;
+  border-radius: 14px;
+  height: 140vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 1em !important;
+  position: relative;
+}
+section#chat header {
+  font-size: 3em;
+  position: relative;
+  font-weight: 900;
+  color: #f39200;
+  text-align: center;
+  padding: 1.6em 0;
+  position: relative;
+  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.0901960784);
+  z-index: 5;
+}
+section#chat header::before, section#chat header::after {
+  content: "";
+  position: absolute;
+  font-size: 4vw;
+}
+section#chat header::before {
+  right: 2em;
+  background-image: url("./Content/images/Student Panel/HappyQA2.png");
+  height: 4em;
+  width: 6.1em;
+  background-size: cover;
+  z-index: 4;
+  bottom: 0.01em;
+}
+section#chat header::after {
+  background-image: url("./Content/images/Student Panel/Chat.png");
+  left: 0;
+  height: 6.4em;
+  width: 9em;
+  background-size: cover;
+  z-index: 4;
+  bottom: 0;
+}
+section#chat .veiw {
+  --offset: 45%;
+  background-color: #f5f5f5;
+  color: #42515a;
+  padding: 2em 0;
+  overflow-y: scroll;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+section#chat .veiw::-webkit-scrollbar {
+  width: 8px;
+}
+section#chat .veiw::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+section#chat .veiw::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+  border-radius: 8px;
+}
+section#chat .veiw::-webkit-scrollbar-thumb:hover {
+  background: #3bc6d8;
+}
+section#chat .veiw > *:not(.date, .getUp) {
+  display: flex;
+  justify-content: fs;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: row;
+  gap: 0.4em;
+  padding: 0.5em;
+  padding-bottom: 1.2em;
+  margin: 0 0.5em;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+section#chat .veiw > *:not(.date, .getUp).merge {
+  padding-top: 0.4em;
+}
+section#chat .veiw > *:not(.date, .getUp).merge .icon {
+  display: none;
+}
+section#chat .veiw > *:not(.date, .getUp).merge span {
+  margin-right: 4.9em;
+}
+section#chat .veiw > *:not(.date, .getUp).merge.others span {
+  margin-right: unset;
+  margin-left: 4.9em;
+}
+section#chat .veiw > *:not(.date, .getUp).blink {
+  animation: blink 2s cubic-bezier(0.47, 0, 0.74, 0.71);
+}
+@keyframes blink {
+  0% {
+    background-color: #e3e3e3;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+section#chat .veiw > *:not(.date, .getUp).select {
+  background-color: #e3e3e3;
+}
+section#chat .veiw > *:not(.date, .getUp) .icon {
+  --wid: 4em;
+  width: var(--wid);
+  height: var(--wid);
+  flex-shrink: 0;
+  background: url("./Content/images/img/Asset 4.png");
+  background-size: contain;
+  border-radius: 50%;
+  position: relative;
+  bottom: 0.4em;
+  font-size: 0.8em;
+}
+section#chat .veiw > *:not(.date, .getUp) .icon::before {
+  content: attr(data-user);
+  position: absolute;
+  top: calc(100% + 0.2em);
+  width: 0;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: 800;
+  text-align: center;
+}
+section#chat .veiw > *:not(.date, .getUp) span {
+  background-color: var(--question);
+  padding: 1em 1.7em;
+  border-radius: 25px 25px 0 25px;
+  position: relative;
+  font-size: 0.8em;
+  font-weight: 500;
+  max-width: var(--offset);
+  overflow-wrap: break-word;
+}
+section#chat .veiw > *:not(.date, .getUp) span::before {
+  content: attr(data-time);
+  position: absolute;
+  top: calc(100% + 0.2em);
+  right: 0;
+  direction: ltr;
+  white-space: nowrap;
+}
+section#chat .veiw > *:not(.date, .getUp) span a {
+  position: absolute;
+  left: 1em;
+  top: 100%;
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: inherit;
+  right: 5em;
+  text-align: left;
+  color: #0093ff;
+}
+section#chat .veiw > *:not(.date, .getUp) span a::before {
+  content: "پاسخ به: ";
+  color: #42515a;
+}
+section#chat .veiw > *:not(.date, .getUp) span a:empty {
+  display: none;
+}
+section#chat .veiw > *:not(.date, .getUp) span i {
+  color: grey;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  height: min-content;
+  margin: auto;
+  padding: 0.4em;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+section#chat .veiw .others {
+  flex-direction: row-reverse;
+}
+section#chat .veiw .others .icon {
+  background-image: url("./Content/images/img/Asset 2.png");
+}
+section#chat .veiw .others span {
+  background-color: var(--answer);
+  border-radius: 25px 25px 25px 0;
+}
+section#chat .veiw .others span::before {
+  right: unset;
+  left: 0;
+}
+section#chat .veiw .others span a {
+  left: 5em;
+  right: 1em;
+  text-align: right;
+}
+section#chat .veiw .others span i {
+  right: unset;
+  left: 100%;
+  transform: scaleX(-1);
+}
+section#chat .veiw .date {
+  margin: 1em auto;
+  display: block;
+  text-align: center;
+  background: #d6d6d6;
+  width: max-content;
+  padding: 0.2em 1em;
+  border-radius: 10px;
+}
+section#chat .veiw .sample {
+  display: none;
+}
+section#chat .veiw .contextPlaceholder {
+  position: relative;
+  height: 0;
+  padding: 0;
+}
+section#chat .veiw .contextPlaceholder .context {
+  position: absolute;
+  background-color: white;
+  list-style-type: none;
+  border-radius: 0.4em;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  display: block;
+  bottom: 10em;
+  --wid: 11em;
+  width: var(--wid);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top right;
+  height: max-content;
+  transition: transform 0.2s, opacity 0.2s;
+}
+section#chat .veiw .contextPlaceholder .context.active {
+  opacity: 100;
+  transform: scale(1);
+}
+section#chat .veiw .contextPlaceholder .context li {
+  padding: 0.3em 2.4em;
+  font-size: 0.85em;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  color: #42515a;
+}
+section#chat .veiw .contextPlaceholder .context li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+section#chat .veiw .contextPlaceholder .context.others li.strict {
+  display: none;
+}
+section#chat .wrap {
+  position: relative;
+}
+section#chat .wrap .getDown {
+  background-color: var(--question);
+  color: white;
+  --wid: 2.5em;
+  width: var(--wid);
+  height: var(--wid);
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: calc(100% + 1em);
+  right: 0.6em;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.2s 0.2s;
+  transform: scale(0.3);
+  opacity: 0;
+}
+section#chat .wrap .getDown.active {
+  transform: scale(1);
+  opacity: 100;
+}
+section#chat .wrap .reply {
+  font-size: 0.8em;
+  padding: 0.8em;
+  padding-bottom: 0;
+  background-color: var(--question);
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: 0.2s;
+  max-height: 7.5em;
+  padding: 0;
+}
+section#chat .wrap .reply > div {
+  background-color: var(--answer);
+  flex: 0 0 90.5%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  margin: 0.8em 0.5em;
+  margin-bottom: 0;
+  padding: 0.6em 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section#chat .wrap .reply > div .icon::before {
+  content: attr(data-user) ":";
+  color: #007cff;
+  font-weight: bold;
+}
+section#chat .wrap .reply > div span i {
+  display: none;
+}
+section#chat .wrap .reply > div a {
+  display: none;
+}
+section#chat .wrap .reply > i {
+  color: white;
+  cursor: pointer;
+  flex: 0 0 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9em;
+}
+section#chat .wrap .reply.closed {
+  max-height: 0;
+}
+section#chat form {
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.8em 0.5em;
+  background: var(--question);
+}
+section#chat form .input[contenteditable] {
+  --wid: 88%;
+  background: #f5f5f5;
+  flex: 0 0 var(--wid);
+  max-width: var(--wid);
+  font-family: inherit;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: #42515a;
+  padding: 0.5em 1.1em;
+  font-size: 0.9em;
+  overflow-wrap: break-word;
+  cursor: text;
+}
+section#chat form .input[contenteditable] a input {
+  display: none;
+}
+section#chat form .input[contenteditable]:focus {
+  outline: none;
+  border-color: #46b4ca;
+}
+section#chat form .input[contenteditable]:empty::before {
+  content: "متن خود را بنویسید";
+  color: #a0a0a0;
+}
+section#chat form label {
+  flex: 0 0 2.5%;
+  color: white;
+  font-size: 1.3em;
+  text-align: center;
+  cursor: pointer;
+}
+section#chat form label input {
+  display: none;
+}
+section#chat form button {
+  flex: 0 0 7%;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5em 0;
+  transition: 0.2s;
+  background: #246fff;
+  color: #e5e5e5;
+}
+section#chat form button:disabled {
+  color: black;
+  background: #dfdfdf;
+}
+@media (max-width: 480px) {
+  section#chat {
+    margin: 0 calc(-1 * var(--verticMargin));
+    margin-bottom: 0 !important;
+    border-radius: 0;
+    font-size: 1.3em;
+  }
+  section#chat header {
+    padding: 0.6em 0;
+    padding-bottom: 35vw;
+  }
+  section#chat header::before, section#chat header::after {
+    font-size: 5.5vw;
+  }
+  section#chat .veiw {
+    --offset: 73%;
+  }
+  section#chat .veiw > :not(.date, .getUp) {
+    font-size: 0.9em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  section#chat .veiw > :not(.date, .getUp) .icon {
+    font-size: 0.8em;
+  }
+  section#chat .veiw .contextPlaceholder {
+    font-size: 1em;
+  }
+  section#chat .wrap .reply > div {
+    flex: 0 0 80%;
+  }
+  section#chat .wrap .reply i {
+    flex: 0 0 17%;
+    font-size: 2.1em;
+  }
+  section#chat form {
+    border-radius: 0;
+  }
+  section#chat form .input[contenteditable] {
+    --wid: 72%;
+    font-size: 0.8em;
+  }
+  section#chat form button {
+    flex: 0 0 16%;
+    font-weight: 700;
+    font-size: 0.8em;
+  }
+  section#chat form button:disabled {
+    font-weight: 500;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: iransansx;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  font-family: iransansx;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --border-radius: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
